@@ -1,2 +1,5 @@
 # Ignore local directory
 .vscode/
+
+# Ignore local secret file
+.env
