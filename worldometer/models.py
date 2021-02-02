@@ -1,4 +1,3 @@
-
 from requests_html import HTMLSession 
 
 from .const import worldometer_url
