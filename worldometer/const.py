@@ -1,4 +1,4 @@
-url = 'https://www.worldometers.info/'
+URL = 'https://www.worldometers.info/'
 
-css_selector_of_counter_numbers = '.counter-number'
-css_selector_of_counter_item = '.counter-item, .counter-item-double'
+CSS_SELECTOR_OF_COUNTER_NUMBERS = '.counter-number'
+CSS_SELECTOR_OF_COUNTER_ITEM = '.counter-item, .counter-item-double'
