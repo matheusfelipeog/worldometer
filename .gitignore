@@ -3,3 +3,6 @@
 
 # Ignore local secret file
 .env
+
+# Ignore cache
+__pycache__/
