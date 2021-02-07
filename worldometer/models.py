@@ -14,11 +14,12 @@ class Worldometer(object):
     def _get(url):
 
         session = HTMLSession()
+        timeout = 15  # in seconds
 
         try:
             # Get html page and render dynamic content
-            r = session.get(url, timeout=15)
-            r.html.render()
+            r = session.get(url, timeout=timeout)
+            r.html.render(timeout=timeout)
 
             return Worldometer._find_data(r)
 
