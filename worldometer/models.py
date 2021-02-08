@@ -8,7 +8,7 @@ from .const import CSS_SELECTOR_OF_COUNTER_NUMBERS
 
 class Worldometer(object):
     def __init__(self):
-        self._r = self._sanitize_data(self._get(URL))
+        self._r = self.sanitize_metrics(self._get(URL))
         
     @staticmethod
     def _get(url):
@@ -38,15 +38,17 @@ class Worldometer(object):
         return metrics
 
     @staticmethod
-    def _sanitize_data(data_list: list) -> list:
-        sanitized_data = []
+    def sanitize_metrics(metric_list: list) -> list:
+        """Sanitize all metrics in list."""
 
-        for data in data_list:
+        sanitized_metrics = []
+
+        for metric in metric_list:
             
             # Get only the number and convert to int
-            found = re.search(r'[0-9,]+', data).group()
+            found = re.search(r'[0-9,]+', metric).group()
             number = int(found.replace(',', ''))
 
-            sanitized_data.append(number)
+            sanitized_metrics.append(number)
         
-        return sanitized_data
+        return sanitized_metrics
