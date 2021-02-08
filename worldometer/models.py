@@ -1,6 +1,6 @@
 import re
 
-from requests_html import HTMLSession
+from requests_html import HTML, HTMLSession
 
 from .const import URL
 from .const import CSS_SELECTOR_OF_COUNTER_NUMBERS
@@ -21,17 +21,20 @@ class Worldometer(object):
             r = session.get(url, timeout=timeout)
             r.html.render(timeout=timeout)
 
-            return Worldometer._find_metrics_in_html(r)
+            return Worldometer.find_metrics_in_html(r.html.raw_html)
 
         except Exception as err:
             raise Exception(err)
 
     @staticmethod
-    def _find_metrics_in_html(r):
-        
-        content = r.html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)
+    def find_metrics_in_html(html_code: str) -> list:
+        """Find worldometer metrics in html code."""
 
-        return content
+        html = HTML(html=html_code)
+
+        metrics = html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)
+
+        return metrics
 
     @staticmethod
     def _sanitize_data(data_list):
