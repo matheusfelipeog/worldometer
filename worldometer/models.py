@@ -32,18 +32,19 @@ class Worldometer(object):
 
         html = HTML(html=html_code)
 
-        metrics = html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)
+        # Get only text of all requests_html.Element object
+        metrics = [metric.text for metric in html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)]
 
         return metrics
 
     @staticmethod
-    def _sanitize_data(data_list):
+    def _sanitize_data(data_list: list) -> list:
         sanitized_data = []
 
         for data in data_list:
             
             # Get only the number and convert to int
-            found = re.search(r'[0-9,]+', data.text).group()
+            found = re.search(r'[0-9,]+', data).group()
             number = int(found.replace(',', ''))
 
             sanitized_data.append(number)
