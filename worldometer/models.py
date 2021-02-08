@@ -8,10 +8,10 @@ from .const import CSS_SELECTOR_OF_COUNTER_NUMBERS
 
 class Worldometer(object):
     def __init__(self):
-        self._r = self.sanitize_metrics(self._get(URL))
+        self.metrics = self.collect_metrics()
         
     @staticmethod
-    def _get(url):
+    def _get_html(url) -> str:
 
         session = HTMLSession()
         timeout = 15  # in seconds
@@ -21,7 +21,7 @@ class Worldometer(object):
             r = session.get(url, timeout=timeout)
             r.html.render(timeout=timeout)
 
-            return Worldometer.find_metrics_in_html(r.html.raw_html)
+            return r.html.raw_html
 
         except Exception as err:
             raise Exception(err)
@@ -51,4 +51,13 @@ class Worldometer(object):
 
             sanitized_metrics.append(number)
         
+        return sanitized_metrics
+
+    def collect_metrics(self) -> list:
+        """Collects all metrics from the worldometer site."""
+
+        html = self._get_html(url=URL)
+        metrics = self.find_metrics_in_html(html_code=html)
+        sanitized_metrics = self.sanitize_metrics(metric_list=metrics)
+
         return sanitized_metrics
