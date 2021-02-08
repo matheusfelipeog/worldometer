@@ -21,13 +21,14 @@ class Worldometer(object):
             r = session.get(url, timeout=timeout)
             r.html.render(timeout=timeout)
 
-            return Worldometer._find_data(r)
+            return Worldometer._find_metrics_in_html(r)
 
         except Exception as err:
             raise Exception(err)
 
     @staticmethod
-    def _find_data(r):
+    def _find_metrics_in_html(r):
+        
         content = r.html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)
 
         return content
