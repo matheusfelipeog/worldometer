@@ -224,3 +224,11 @@ class Worldometer(object):
             only_metrics.extend(metrics)
 
         return only_metrics
+
+    @staticmethod
+    def categories() -> list:
+        """Return categories of worldometer.
+        
+        `return` - A list of categories of str type.
+        """
+        return [category for category in _METRICS_LABELS.keys()]
