@@ -7,6 +7,8 @@ from .const import CSS_SELECTOR_OF_COUNTER_NUMBERS
 
 
 class Worldometer(object):
+    """Worldometer - Get metrics do site https://www.worldometers.info"""
+
     def __init__(self):
         self.metrics = self.collect_metrics()
         
