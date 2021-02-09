@@ -210,3 +210,18 @@ class Worldometer(object):
             self._metrics = self.collect_metrics()
         else:
             raise Exception('There are no metrics. Collect them to update.')
+
+    def metrics_labels(self, with_categories=False) -> list or dict:
+        """Return metrics labels of worldometer.
+        
+        `return: list or dict` - A list or dict of metrics labels.
+        """
+
+        if with_categories:
+            return METRICS_LABELS
+
+        only_metrics = []
+        for metrics in METRICS_LABELS.values():
+            only_metrics.extend(metrics)
+
+        return only_metrics
