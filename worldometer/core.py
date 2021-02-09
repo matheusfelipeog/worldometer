@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+"""
+worldometer.core
+----------------
+
+This module contains the core objects that power Worldometer.
+"""
+
+
 import re
 
 from requests_html import HTML, HTMLSession
