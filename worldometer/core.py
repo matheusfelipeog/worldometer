@@ -21,7 +21,7 @@ CSS_SELECTOR_OF_COUNTER_NUMBERS = '.counter-number'
 CSS_SELECTOR_OF_COUNTER_ITEM = '.counter-item, .counter-item-double'
 
 METRICS_LABELS = {
-    'WORLD_POPULATION': [
+    'world_population': [
         'current_world_population',
         'births_this_year',
         'births_today',
@@ -30,7 +30,7 @@ METRICS_LABELS = {
         'net_population_growth_this_year',
         'net_population_growth_today'
     ],
-    'GOVERNMENT_AND_ECONOMICS': [
+    'government_and_economics': [
         'public_healthcare_expenditure_today',
         'public_education_expenditure_today',
         'public_military_expenditure_today',
@@ -38,7 +38,7 @@ METRICS_LABELS = {
         'bicycles_produced_this_year',
         'computers_produced_this_year'
     ],
-    'SOCIETY_AND_MEDIA': [
+    'society_and_media': [
         'new_book_titles_published_this_year',
         'newspapers_circulated_today',
         'tv_sets_sold_worldwide_today',
@@ -50,14 +50,14 @@ METRICS_LABELS = {
         'tweets_sent_today',
         'google_searches_today'
     ],
-    'ENVIRONMENT': [
+    'environment': [
         'forest_loss_this_year',
         'land_lost_to_soil_erosion_this_year',
         'co2_emissions_this_year',
         'desertification_this_year',
         'toxic_chemicals_released_in_the_environment_this_year',
     ],
-    'FOOD': [
+    'food': [
         'undernourished_people_in_the_world',
         'overweight_people_in_the_world',
         'obese_people_in_the_world',
@@ -65,12 +65,12 @@ METRICS_LABELS = {
         'money_spent_for_obesity_related_diseases_in_the_usa_today',
         'money_spent_on_weight_loss_programs_in_the_usa_today',
     ],
-    'WATER': [
+    'water': [
         'water_used_this_year',
         'deaths_caused_by_water_related_diseases_this_year',
         'people_with_no_access_to_a_safe_drinking_water_source',
     ],
-    'ENERGY': [
+    'energy': [
         'energy_used_today',
         'non-renewable_sources',
         'renewable_sources',
@@ -83,7 +83,7 @@ METRICS_LABELS = {
         'coal_left',
         'days_to_the_end_of_coal'
     ],
-    'HEALTH': [
+    'health': [
         'communicable_disease_deaths_this_year',
         'seasonal_flu_deaths_this_year',
         'deaths_of_children_under_5_this_year',
