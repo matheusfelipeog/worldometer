@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 
 from requests_html import HTML, HTMLSession
