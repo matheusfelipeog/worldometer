@@ -186,8 +186,6 @@ class Worldometer(object):
 
     def collect_metrics(self) -> list:
         """Collects all metrics from the worldometer site.
-        
-        Keyword Argument:
 
         `return: list` - A list of metrics of int type.
         """
