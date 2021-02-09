@@ -124,7 +124,7 @@ class Worldometer(object):
     def metrics(self) -> list:
         """Get all metrics of worldometer."""
 
-        return self._metrics
+        return self._metrics.copy()
 
     def _get_html(self, url: str) -> str:
         """Get the html code from the specified url and
