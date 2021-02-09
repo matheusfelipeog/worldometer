@@ -104,7 +104,7 @@ METRICS_LABELS = {
 
 
 class Worldometer(object):
-    """Worldometer - Get metrics do site https://www.worldometers.info"""
+    """Worldometer - Get metrics from site https://www.worldometers.info"""
 
     def __init__(self):
         self.metrics = self.collect_metrics()
