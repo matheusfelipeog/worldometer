@@ -106,7 +106,14 @@ METRICS_LABELS = {
 class Worldometer(object):
     """Worldometer - Get metrics from site https://www.worldometers.info"""
 
-    def __init__(self, timeout=15):
+    def __init__(self, timeout: int = 15):
+        """Initializer of Worldometer class.
+        
+        Keyword Arguments:
+
+        `timeout: int` - timeout, in seconds, to wait for processing.
+        """
+
         self.__r = None  # Stores the response with html code for later rendering
 
         self.__timeout = timeout
@@ -132,7 +139,14 @@ class Worldometer(object):
 
     @staticmethod
     def find_metrics_in_html(html_code: str) -> list:
-        """Find worldometer metrics in html code."""
+        """Find worldometer metrics in html code.
+        
+        Keyword Arguments:
+
+        `html_code: str` - Receive html code.
+        
+        `return: list` - A list of not sanitized metrics of str type.
+        """
 
         html = HTML(html=html_code)
 
@@ -143,7 +157,14 @@ class Worldometer(object):
 
     @staticmethod
     def sanitize_metrics(metric_list: list) -> list:
-        """Sanitize all metrics in list."""
+        """Sanitize all metrics in list.
+        
+        Keyword Arguments:
+
+        `metric_list: list` - Receive list of metrics in str type.
+        
+        `return: list` - A list of sanitized metrics of int type.
+        """
 
         sanitized_metrics = []
 
@@ -158,7 +179,12 @@ class Worldometer(object):
         return sanitized_metrics
 
     def collect_metrics(self) -> list:
-        """Collects all metrics from the worldometer site."""
+        """Collects all metrics from the worldometer site.
+        
+        Keyword Argument:
+
+        `return: list` - A list of metrics of int type.
+        """
 
         if self.__r is None:
             html = self._get_html(url=URL)
