@@ -231,5 +231,42 @@ class Worldometer(object):
         
         `return` - A list of categories of str type.
         """
-        
+
         return [category for category in _METRICS_LABELS.keys()]
+
+    def metrics_with_labels(self, with_categories: bool = False) -> dict:
+        """Return metrics with labels in key-value structure.
+        
+        `with_categories: bool` - If True, return metrics with labels in categories.
+
+        `return` - Metrics with labels in dict structure.
+        """
+
+        metrics = self.metrics.copy()
+
+        if with_categories:
+            
+            m_with_l = {}  # Storage all structure of metrics with labels
+            metrics_labels = self.metrics_labels(with_categories=True).copy()
+
+            idx = 0  # Index for get metrics in idx position
+            for category in metrics_labels:
+
+                m_with_l[category] = {}  # Each category has a dict structure
+
+                for label in metrics_labels[category]:
+
+                    # Storage of a metric on the key label as the index 
+                    # increases +1 to iterate through the entire list of metrics
+                    m_with_l[category][label] = metrics[idx]
+                    idx += 1
+                
+            return m_with_l
+
+        else:
+        
+            labels = self.metrics_labels().copy()
+            
+            return dict(
+                zip(labels, metrics)
+            )
