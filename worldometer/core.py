@@ -118,8 +118,14 @@ class Worldometer(object):
 
         self.__timeout = timeout
 
-        self.metrics = self.collect_metrics()
+        self._metrics = self.collect_metrics()
         
+    @property
+    def metrics(self) -> list:
+        """Get all metrics of worldometer."""
+
+        return self._metrics
+
     def _get_html(self, url: str) -> str:
         """Get the html code from the specified url and
         return its rendered content.
@@ -201,6 +207,6 @@ class Worldometer(object):
 
         if self.__r is not None:
             self.__r.html.render(timeout=self.__timeout)
-            self.metrics = self.collect_metrics()
+            self._metrics = self.collect_metrics()
         else:
             raise Exception('There are no metrics. Collect them to update.')
