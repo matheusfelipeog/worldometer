@@ -106,8 +106,10 @@ METRICS_LABELS = {
 class Worldometer(object):
     """Worldometer - Get metrics from site https://www.worldometers.info"""
 
-    def __init__(self):
+    def __init__(self, timeout=15):
         self.__r = None  # Stores the response with html code for later rendering
+
+        self.__timeout = timeout
 
         self.metrics = self.collect_metrics()
         
@@ -117,12 +119,11 @@ class Worldometer(object):
         """
 
         session = HTMLSession()
-        timeout = 15  # in seconds
 
         try:
             # Get html page and render dynamic content
-            self.__r = session.get(url, timeout=timeout)
-            self.__r.html.render(timeout=timeout)
+            self.__r = session.get(url, timeout=self.__timeout)
+            self.__r.html.render(timeout=self.__timeout)
 
             return self.__r.html.raw_html
 
@@ -159,8 +160,21 @@ class Worldometer(object):
     def collect_metrics(self) -> list:
         """Collects all metrics from the worldometer site."""
 
-        html = self._get_html(url=URL)
+        if self.__r is None:
+            html = self._get_html(url=URL)
+        else:
+            html = self.__r.html.raw_html
+
         metrics = self.find_metrics_in_html(html_code=html)
         sanitized_metrics = self.sanitize_metrics(metric_list=metrics)
 
         return sanitized_metrics
+
+    def update_metrics(self) -> None:
+        """Update metrics of worldometer."""
+
+        if self.__r is not None:
+            self.__r.html.render(timeout=self.__timeout)
+            self.metrics = self.collect_metrics()
+        else:
+            raise Exception('There are no metrics. Collect them to update.')
