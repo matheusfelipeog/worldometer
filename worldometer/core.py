@@ -231,4 +231,5 @@ class Worldometer(object):
         
         `return` - A list of categories of str type.
         """
+        
         return [category for category in _METRICS_LABELS.keys()]
