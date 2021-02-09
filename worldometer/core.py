@@ -119,7 +119,22 @@ class Worldometer(object):
         self.__timeout = timeout
 
         self._metrics = self.collect_metrics()
-        
+    
+    def __str__(self):
+
+        c, l, m = self.what_is_here().values()
+
+        return f'Worldometer has {c} categories, {l} labels and {m} metrics'
+
+    def __repr__(self):
+
+        c, l, m = self.what_is_here().values()
+
+        return (
+            '<worldometer.Worldometer Object'
+            f'(categories={c}, labels={l}, metrics={m})>'
+        )
+
     @property
     def metrics(self) -> list:
         """Get all metrics of worldometer."""
@@ -272,3 +287,19 @@ class Worldometer(object):
             return dict(
                 zip(labels, metrics)
             )
+
+    def what_is_here(self) -> dict:
+        """Return what is here in object.
+        
+        `return: dict` - Number of categories, labels and metrics.
+        """
+
+        c = len(self.categories())
+        l = len(self.metrics_labels())
+        m = len(self.metrics)
+
+        return {
+            'categories': c,
+            'labels': l,
+            'metrics': m
+        }
