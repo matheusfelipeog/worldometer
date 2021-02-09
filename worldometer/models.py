@@ -11,7 +11,7 @@ class Worldometer(object):
         self.metrics = self.collect_metrics()
         
     @staticmethod
-    def _get_html(url) -> str:
+    def _get_html(url: str) -> str:
 
         session = HTMLSession()
         timeout = 15  # in seconds
