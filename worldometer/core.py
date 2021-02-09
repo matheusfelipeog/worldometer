@@ -213,6 +213,8 @@ class Worldometer(object):
     def metrics_labels(with_categories=False) -> list or dict:
         """Return metrics labels of worldometer.
         
+        `with_categories: bool` - If True, return metrics labels in categories.
+
         `return: list or dict` - A list or dict of metrics labels.
         """
 
