@@ -17,10 +17,10 @@ from requests_html import HTML, HTMLSession
 
 URL = 'https://www.worldometers.info/'
 
-CSS_SELECTOR_OF_COUNTER_NUMBERS = '.counter-number'
-CSS_SELECTOR_OF_COUNTER_ITEM = '.counter-item, .counter-item-double'
+_CSS_SELECTOR_OF_COUNTER_NUMBERS = '.counter-number'
+_CSS_SELECTOR_OF_COUNTER_ITEM = '.counter-item, .counter-item-double'
 
-METRICS_LABELS = {
+_METRICS_LABELS = {
     'world_population': [
         'current_world_population',
         'births_this_year',
@@ -157,7 +157,7 @@ class Worldometer(object):
         html = HTML(html=html_code)
 
         # Get only text of all requests_html.Element object
-        metrics = [metric.text for metric in html.find(CSS_SELECTOR_OF_COUNTER_NUMBERS)]
+        metrics = [metric.text for metric in html.find(_CSS_SELECTOR_OF_COUNTER_NUMBERS)]
 
         return metrics
 
@@ -216,10 +216,10 @@ class Worldometer(object):
         """
 
         if with_categories:
-            return METRICS_LABELS
+            return _METRICS_LABELS
 
         only_metrics = []
-        for metrics in METRICS_LABELS.values():
+        for metrics in _METRICS_LABELS.values():
             only_metrics.extend(metrics)
 
         return only_metrics
