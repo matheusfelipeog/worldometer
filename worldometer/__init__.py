@@ -1,1 +1,1 @@
-from .models import Worldometer
+from .core import Worldometer
