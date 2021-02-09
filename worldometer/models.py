@@ -12,6 +12,9 @@ class Worldometer(object):
         
     @staticmethod
     def _get_html(url: str) -> str:
+        """Get the html code from the specified url and
+        return its rendered content.
+        """
 
         session = HTMLSession()
         timeout = 15  # in seconds
