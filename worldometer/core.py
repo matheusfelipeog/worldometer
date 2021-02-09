@@ -107,10 +107,11 @@ class Worldometer(object):
     """Worldometer - Get metrics from site https://www.worldometers.info"""
 
     def __init__(self):
+        self.__r = None  # Stores the response with html code for later rendering
+
         self.metrics = self.collect_metrics()
         
-    @staticmethod
-    def _get_html(url: str) -> str:
+    def _get_html(self, url: str) -> str:
         """Get the html code from the specified url and
         return its rendered content.
         """
@@ -120,10 +121,10 @@ class Worldometer(object):
 
         try:
             # Get html page and render dynamic content
-            r = session.get(url, timeout=timeout)
-            r.html.render(timeout=timeout)
+            self.__r = session.get(url, timeout=timeout)
+            self.__r.html.render(timeout=timeout)
 
-            return r.html.raw_html
+            return self.__r.html.raw_html
 
         except Exception as err:
             raise Exception(err)
