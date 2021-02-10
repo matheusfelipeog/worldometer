@@ -16,13 +16,18 @@ __w = Worldometer()
 def get_metric_of(label: str) -> int:
     """Get metric of label specified."""
 
-    __w.update_metrics()
     metrics = __w.metrics_with_labels()
 
     if label not in metrics:
         raise Exception(f'This label "{label}" is invalid, please use a valid label.')
 
     return metrics[label]
+
+
+def update_metrics() -> None:
+    """Update metrics of worldometer."""
+    
+    __w.update_metrics()
 
 
 def current_world_population() -> int:
