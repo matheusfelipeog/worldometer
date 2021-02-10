@@ -6,7 +6,7 @@
 # Index
 
 - [About](#about)
-   - [worldometers.info](#worldometers.info)
+   - [worldometers.info](#worldometersinfo)
    - [How it works?](#how-it-works)
 - [Contributions](#contributions)
 - [License](#license)
