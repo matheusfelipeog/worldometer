@@ -9,6 +9,8 @@ Implement a simplified api of worldometer.Worldometer Class.
 
 
 __all__ = [
+    'get_metric_of',
+    'update_metrics',
     'current_world_population',
     'births_this_year',
     'births_today',
