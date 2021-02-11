@@ -8,6 +8,8 @@
 - [About](#about)
    - [worldometers.info](#worldometersinfo)
    - [How it works?](#how-it-works)
+- [Install](#install)
+- [Demo](#demo)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -27,6 +29,110 @@ More info: [worldometers.info/about](https://www.worldometers.info/about/)
 > **[Adapted]:** For the data, is elaborate instead a real-time estimate through a proprietary algorithm which processes the latest data and projections provided by the most reputable organizations and statistical offices in the world.
 
 More info about data source: [worldometers.info/sources](https://www.worldometers.info/sources/)
+
+
+# Install
+
+First, create a directory and enter it:
+
+```bash
+$ mkdir my_project && cd my_project
+```
+
+Create a virtual environment to avoid breaking dependence on other projects.
+
+This project uses [`pipenv`](https://pipenv.pypa.io/en/latest/), it already does it alone ;)
+
+```bash
+$ pipenv install worldometer
+```
+
+But you can use `virtualenv` + `pip` if you prefer:
+
+```bash
+$ virtualenv venv && source venv/Scripts/activate
+```
+
+Now install:
+
+```bash
+$ pip install worldometer
+```
+
+
+# Demo
+
+*The first time you run any function/method or class, it will download Chromium to its home directory (for example, ~/.pyppeteer/). It only happens once.*
+
+*After, it will only open the chromium to render the contents of worldometers.*
+
+**Simple API usage:**
+
+```python
+>>> import worldometer
+
+>>> worldometer.current_world_population()
+7845085923
+
+>>> worldometer.tweets_sent_today()
+4539558
+
+>>> worldometer.get_metric_of(label='computers_produced_this_year')
+27760858
+```
+
+
+**Or complete use with Worldometer Class:**
+
+```python
+>>> from worldometer import Worldometer
+>>> w = Worldometer()
+
+>>> w.what_is_here()
+{'categories': 8, 'labels': 63, 'metrics': 63}
+
+>>> w.categories()
+[   
+    'world_population',
+    'government_and_economics',
+    'society_and_media',
+    ...  # compressed
+]
+
+>>> w.metrics_labels()
+[   
+    'current_world_population',
+    'births_this_year',
+    'births_today',
+    'deaths_this_year',
+    'deaths_today',
+    'net_population_growth_this_year',
+    ...  # compressed
+]
+
+>>> w.metrics
+[   
+    7845087963,
+    15741371,
+    5676,
+    6608605,
+    2383,
+    9132766,
+    ...  # compressed
+]
+
+>>> w.metrics_with_labels()
+{   
+    'abortions_this_year': 4785492,
+    'bicycles_produced_this_year': 17070566,
+    'births_this_year': 15741371,
+    'births_today': 5676,
+    'blog_posts_written_today': 110171,
+    'cars_produced_this_year': 8999185,
+    'cellular_phones_sold_today': 98846,
+    ...: ...  # compressed
+}
+```
 
 
 # Contributions
