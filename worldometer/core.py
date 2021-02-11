@@ -218,7 +218,7 @@ class Worldometer(object):
     More info in: github.com/matheusfelipeog/worldometer
     """
 
-    def __init__(self, timeout: int = 15):
+    def __init__(self, timeout: int = 30):
         """Initializer of Worldometer class.
         
         Keyword Arguments:
