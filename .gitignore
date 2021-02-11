@@ -3,6 +3,12 @@
 
 # Ignore local secret file
 .env
+.pypirc
 
 # Ignore cache
 __pycache__/
+
+# Ignore build and distribution directories/files
+build/
+dist/
+*.egg-info/
