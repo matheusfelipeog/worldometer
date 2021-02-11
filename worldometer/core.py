@@ -6,9 +6,9 @@ worldometer.core
 
 This module contains the core objects that power Worldometer.
 
-Usage Worldometer:
+Usage worldometer.core:
 
->>> from worldometer import Worldometer
+>>> from worldometer.core import Worldometer
 >>> w = Worldometer()
 
 >>> w.what_is_here()
