@@ -59,6 +59,9 @@ Usage worldometer.core:
 More info in: github.com/matheusfelipeog/worldometer
 """
 
+__all__ = ['Worldometer']
+
+from .__about__ import __version__, __author__, __email__
 
 import re
 

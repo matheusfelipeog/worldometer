@@ -78,6 +78,7 @@ __all__ = [
     'api'
 ]
 
+from .__about__ import __version__, __author__, __email__
 
 from .core import Worldometer
 from .api import *

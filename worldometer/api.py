@@ -94,6 +94,8 @@ __all__ = [
 
 from .core import Worldometer
 
+from .__about__ import __version__, __author__, __email__
+
 
 __w = Worldometer()
 
