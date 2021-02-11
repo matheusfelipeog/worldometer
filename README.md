@@ -81,7 +81,6 @@ $ pip install worldometer
 27760858
 ```
 
-
 **Or complete use with Worldometer Class:**
 
 ```python
