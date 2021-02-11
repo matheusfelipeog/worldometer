@@ -3,6 +3,22 @@
 </h1>
 
 
+<p align="center">
+    <a href="https://pypi.org/project/worldometer/">
+        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/worldometer?style=for-the-badge" />
+    </a>
+    <a href="https://pypi.org/project/worldometer/">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/worldometer?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/matheusfelipeog/worldometer/releases">
+        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/worldometer?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/matheusfelipeog/worldometer?style=for-the-badge" alt="License MIT" />
+    </a>
+</p>
+
+
 # Index
 
 - [About](#about)
