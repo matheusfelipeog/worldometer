@@ -72,6 +72,7 @@ Simple API usage:
 More info in: github.com/matheusfelipeog/worldometer
 """
 
+
 __all__ = [
     'core',
     'api'
