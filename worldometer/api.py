@@ -5,6 +5,21 @@ worldometer.api
 ---------------
 
 Implement a simplified api of worldometer.Worldometer Class.
+
+API usage:
+
+>>> import worldometer
+
+>>> worldometer.current_world_population()
+7845085923
+
+>>> worldometer.tweets_sent_today()
+4539558
+
+>>> worldometer.get_metric_of(label='computers_produced_this_year')
+27760858
+
+More info in: github.com/matheusfelipeog/worldometer
 """
 
 
