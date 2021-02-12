@@ -78,7 +78,7 @@ $ pip install worldometer
 
 # Demo
 
-*The first time you run any function/method or class, it will download Chromium to its home directory (for example, ~/.pyppeteer/). It only happens once.*
+*The first time you run any function/method or class, it will download Chromium to its home directory (for example, `~/.pyppeteer/`). It only happens once.*
 
 *After, it will only open the chromium to render the contents of worldometers.*
 
