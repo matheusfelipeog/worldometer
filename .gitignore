@@ -12,3 +12,6 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+
+# Ignore local tests
+local_test.py
