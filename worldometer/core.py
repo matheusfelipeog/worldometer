@@ -247,7 +247,6 @@ class Worldometer(object):
             f'(categories={c}, labels={l}, metrics={m})>'
         )
 
-    @property
     def metrics(self) -> list:
         """Get all metrics of worldometer."""
 
@@ -371,7 +370,7 @@ class Worldometer(object):
         `return` - Metrics with labels in dict structure.
         """
 
-        metrics = self.metrics.copy()
+        metrics = self.metrics()
 
         if with_categories:
             
@@ -408,7 +407,7 @@ class Worldometer(object):
 
         c = len(self.categories())
         l = len(self.metrics_labels())
-        m = len(self.metrics)
+        m = len(self.metrics())
 
         return {
             'categories': c,
