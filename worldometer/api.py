@@ -11,13 +11,13 @@ API usage:
 >>> from worldometer import api
 
 >>> api.current_world_population()
-7845085923
+{'current_world_population': 7845085923}
 
 >>> api.tweets_sent_today()
-4539558
+{'tweets_sent_today': 4539558}
 
 >>> api.get_metric_of(label='computers_produced_this_year')
-27760858
+{'computers_produced_this_year': 27760858}
 
 More info in: github.com/matheusfelipeog/worldometer
 """
@@ -100,15 +100,27 @@ from .__about__ import __version__, __author__, __email__
 __w = Worldometer()
 
 
-def get_metric_of(label: str) -> int:
-    """Get metric of label specified."""
+def get_metric_of(label: str) -> dict:
+    """Get metric of label specified.
+    
+    Keyword Argument:
+
+    `label: str` - Label of metric.
+
+    `return: dict` - Label with metric in dict format.
+
+    Usage:
+
+    >>> get_metric_of(label='current_world_population')
+    {'current_world_population': 7845085923}
+    """
 
     metrics = __w.metrics_with_labels()
 
     if label not in metrics:
         raise Exception(f'This label "{label}" is invalid, please use a valid label.')
 
-    return metrics[label]
+    return {label: metrics[label]}
 
 
 def update_metrics() -> None:
