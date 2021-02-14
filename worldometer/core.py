@@ -33,7 +33,7 @@ Usage worldometer.core:
     ...
 ]
 
->>> w.metrics
+>>> w.metrics()
 [   
     7845087963,
     15741371,
@@ -192,7 +192,7 @@ class Worldometer(object):
         ...
     ]
 
-    >>> w.metrics
+    >>> w.metrics()
     [   
         7845087963,
         15741371,

@@ -125,7 +125,7 @@ $ pip install worldometer
     ...  # compressed
 ]
 
->>> w.metrics
+>>> w.metrics()
 [   
     7845087963,
     15741371,
