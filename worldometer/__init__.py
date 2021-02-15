@@ -2,11 +2,13 @@
 
 """
 Worldometer Module
--------------------
+------------------
 
 Get metrics from around the world in multiple categories.
 
-Simple API usage:
+Examples
+--------
+You can use the simplified API to collect the data:
 
 >>> import worldometer
 
@@ -19,7 +21,7 @@ Simple API usage:
 >>> worldometer.get_metric_of(label='computers_produced_this_year')
 {'computers_produced_this_year': 27760858}
 
-... Or complete use with Worldometer Class:
+Or using Worldometer Class:
 
 >>> from worldometer import Worldometer
 >>> w = Worldometer()
@@ -46,7 +48,7 @@ Simple API usage:
     ...
 ]
 
->>> w.metrics
+>>> w.metrics()
 [   
     7845087963,
     15741371,
@@ -69,7 +71,7 @@ Simple API usage:
     ...: ...
 }
 
-More info in: github.com/matheusfelipeog/worldometer
+More info: github.com/matheusfelipeog/worldometer
 """
 
 

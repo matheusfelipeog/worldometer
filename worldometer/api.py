@@ -6,6 +6,8 @@ worldometer.api
 
 Implement a simplified api of worldometer.Worldometer Class.
 
+Examples
+--------
 API usage:
 
 >>> from worldometer import api
@@ -19,7 +21,7 @@ API usage:
 >>> api.get_metric_of(label='computers_produced_this_year')
 {'computers_produced_this_year': 27760858}
 
-More info in: github.com/matheusfelipeog/worldometer
+More info: github.com/matheusfelipeog/worldometer
 """
 
 
@@ -103,11 +105,15 @@ __w = Worldometer()
 def get_metric_of(label: str) -> dict:
     """Get metric of label specified.
     
-    Keyword Argument:
+    Parameters
+    ----------
+    label
+        Label of metric.
 
-    `label: str` - Label of metric.
-
-    `return: dict` - Label with metric in dict format.
+    Returns
+    -------
+    dict
+        Label with metric in dict format.
 
     Usage:
 
