@@ -115,8 +115,8 @@ def get_metric_of(label: str) -> dict:
     dict
         Label with metric in dict format.
 
-    Usage:
-
+    Example
+    -------
     >>> get_metric_of(label='current_world_population')
     {'current_world_population': 7845085923}
     """
