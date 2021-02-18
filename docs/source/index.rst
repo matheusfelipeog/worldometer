@@ -42,6 +42,20 @@ About
 
 `Worldometer <https://github.com/matheusfelipeog/worldometer>`_ is a python module that collects data from `worldometers.info <https://www.worldometers.info/>`_ and provides a simple and self-explanatory interface for using the data.
 
+worldometers.info
+^^^^^^^^^^^^^^^^^
+
+    "Worldometer is run by an international team of developers, researchers, and volunteers with the goal of making world statistics available in a thought-provoking and time relevant format to a wide audience around the world. It is published by a small and independent digital media company based in the United States. We have no political, governmental, or corporate affiliation. Furthermore, we have no investors, donors, grants, or backers of any type. We are completely independent and self-financed through automated programmatic advertising sold in real time on multiple ad exchanges."
+
+More info: `worldometers.info/about <https://www.worldometers.info/about/>`_
+
+How it works?
+^^^^^^^^^^^^^
+
+    **[Adapted]:** "For the data, is elaborate instead a real-time estimate through a proprietary algorithm which processes the latest data and projections provided by the most reputable organizations and statistical offices in the world."
+
+More info about data source: `worldometers.info/sources <https://www.worldometers.info/sources/>`_
+
 
 Indices and tables
 ------------------
