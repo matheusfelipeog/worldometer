@@ -4,10 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests-html = "*"
+requests-html = "0.10.0"
 
 [dev-packages]
 pylint = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.8"
