@@ -44,7 +44,6 @@ Index
 .. toctree::
     :maxdepth: 1
 
-    worldometer <worldometer>
     worldometer_core
     worldometer_api
 
