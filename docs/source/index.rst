@@ -57,6 +57,30 @@ How it works?
 More info about data source: `worldometers.info/sources <https://www.worldometers.info/sources/>`_
 
 
+Install
+-------
+
+First, create a directory and enter it::
+
+    $ mkdir my_project && cd my_project
+
+Create a virtual environment to avoid breaking dependence on other projects.
+
+This project uses `pipenv <https://pipenv.pypa.io/en/latest/>`_, it already does it alone ;)::
+
+    $ pipenv install worldometer
+
+
+But you can use ``virtualenv`` + ``pip`` if you prefer::
+
+    $ virtualenv venv && source venv/Scripts/activate
+
+
+Now install::
+
+    $ pip install worldometer
+
+
 Indices and tables
 ------------------
 
