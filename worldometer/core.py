@@ -57,8 +57,6 @@ Usage worldometer.core:
     'cellular_phones_sold_today': 98846,
     ...: ...
 }
-
-More info: github.com/matheusfelipeog/worldometer
 """
 
 __all__ = ['Worldometer']

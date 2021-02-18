@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Worldometer Module
+worldometer module
 ------------------
 
 Get metrics from around the world in multiple categories.
@@ -70,8 +70,6 @@ Or using Worldometer Class:
     'cellular_phones_sold_today': 98846,
     ...: ...
 }
-
-More info: github.com/matheusfelipeog/worldometer
 """
 
 

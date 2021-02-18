@@ -20,8 +20,6 @@ API usage:
 
 >>> api.get_metric_of(label='computers_produced_this_year')
 {'computers_produced_this_year': 27760858}
-
-More info: github.com/matheusfelipeog/worldometer
 """
 
 
