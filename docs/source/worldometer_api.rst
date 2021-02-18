@@ -1,0 +1,2 @@
+.. automodule:: worldometer.api
+    :members:
