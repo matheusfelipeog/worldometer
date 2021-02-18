@@ -30,13 +30,14 @@ Get current metrics in the world with the python **worldometer** module
 Index
 -----
 
-- `About <#about>`_
+- `About <#id1>`_
 
-  - `worldometers <#id3>`_
-  - `How it works? <#how-it-works>`_
+  - `worldometers <#id2>`_
+  - `How it works? <#id3>`_
 
 - `Install <#id4>`_
 - `Demo <#id5>`_
+- `Indices and tables <#id6>`_
 
 **Worldometer Docs:**
 
