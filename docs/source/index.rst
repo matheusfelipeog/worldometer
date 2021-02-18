@@ -81,6 +81,93 @@ Now install::
     $ pip install worldometer
 
 
+Demo
+----
+
+.. note:: 
+    The first time you run any function/method or class, it will download Chromium to its home directory (for example, ``~/.pyppeteer/``). It only happens once.
+
+    After, it will only open the chromium to render the contents of worldometers.
+
+**Simple API usage:**
+
+Get metrics using simplified functions:
+
+    >>> import worldometer
+
+    >>> worldometer.current_world_population()
+    {'current_world_population': 7845085923}
+
+    >>> worldometer.tweets_sent_today()
+    {'tweets_sent_today': 4539558}
+
+Get metrics by passing the corresponding label:
+
+    >>> worldometer.get_metric_of(label='computers_produced_this_year')
+    {'computers_produced_this_year': 27760858}
+
+
+**Or complete use with Worldometer Class:**
+
+>>> from worldometer import Worldometer
+>>> w = Worldometer()
+
+Get the number of categories, labels and metrics in ``w`` object:
+
+    >>> w.what_is_here()
+    {'categories': 8, 'labels': 63, 'metrics': 63}
+
+Get all categories used:
+
+    >>> w.categories()
+    [   
+        'world_population',
+        'government_and_economics',
+        'society_and_media',
+        ...  # compressed
+    ]
+
+Get all labels used:
+
+    >>> w.metrics_labels()
+    [   
+        'current_world_population',
+        'births_this_year',
+        'births_today',
+        'deaths_this_year',
+        'deaths_today',
+        'net_population_growth_this_year',
+        ...  # compressed
+    ]
+
+Get all metrics used:
+
+    >>> w.metrics()
+    [   
+        7845087963,
+        15741371,
+        5676,
+        6608605,
+        2383,
+        9132766,
+        ...  # compressed
+    ]
+
+Get all metrics with labels in dict format:
+
+>>> w.metrics_with_labels()
+{   
+    'abortions_this_year': 4785492,
+    'bicycles_produced_this_year': 17070566,
+    'births_this_year': 15741371,
+    'births_today': 5676,
+    'blog_posts_written_today': 110171,
+    'cars_produced_this_year': 8999185,
+    'cellular_phones_sold_today': 98846,
+    ...: ...  # compressed
+}
+
+
 Indices and tables
 ------------------
 
