@@ -26,7 +26,9 @@ Get current metrics in the world with the python **worldometer** module
 
 -----------------------------------------------------------------------
 
-**Index:**
+
+Index
+-----
 
 - `About <#about>`_
 
