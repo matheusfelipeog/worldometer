@@ -26,6 +26,15 @@ Get current metrics in the world with the python **worldometer** module
 
 -----------------------------------------------------------------------
 
+**Index:**
+
+- `About <#about>`_
+
+  - `worldometers <#id3>`_
+  - `How it works? <#how-it-works>`_
+
+- `Install <#id4>`_
+- `Demo <#id5>`_
 
 **Worldometer Docs:**
 
@@ -91,6 +100,8 @@ Demo
 
 **Simple API usage:**
 
+*See all function in:* `worldometer.api <worldometer_api.html>`_
+
 Get metrics using simplified functions:
 
     >>> import worldometer
@@ -108,6 +119,8 @@ Get metrics by passing the corresponding label:
 
 
 **Or complete use with Worldometer Class:**
+
+*See all methods in:* `worldometer.core <worldometer_core.html>`_
 
 >>> from worldometer import Worldometer
 >>> w = Worldometer()
