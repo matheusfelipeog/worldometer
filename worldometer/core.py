@@ -136,11 +136,7 @@ _METRICS_LABELS = {
 
 
 class Worldometer(object):
-    """
-    Worldometer Class
-    -----------------
-
-    This is the core class of the worldometer module.
+    """This is the core class of the worldometer module.
 
     All functions/methods of the worldometer module use 
     this class to build a Worldometer Object to access the collected data.
