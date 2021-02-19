@@ -6,17 +6,22 @@ worldometer.api
 
 Implementation of a simplified API of the worldometer module.
 
+Here you will find all the functions available to obtain the metrics separately.
+
 Examples
 --------
-
 >>> from worldometer import api
 
-All functions use ``get_metric_of`` at their core:
+All worldometer.api functions use the ``get_metric_of`` function at their core.
+To use it, just enter the corresponding label:
 
 >>> api.get_metric_of(label='computers_produced_this_year')
 {'computers_produced_this_year': 27760858}
 
-This is a simplified and self-explanatory API:
+There is also a simplified and self-explanatory API that provides
+functions corresponding to the labels. 
+Autocomplete tools from the editors/IDE will help you use these
+functions without having to decorate all labels:
 
 >>> api.current_world_population()
 {'current_world_population': 7845085923}
