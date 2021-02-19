@@ -154,11 +154,11 @@ $ pip install worldometer
 
 All contributions are welcome!
 
-Found a problem, want to give a tip? open an issue.
+Found a problem, want to give a tip? [open an issue](https://github.com/matheusfelipeog/worldometer/issues)
 
-Do you have a solution to the problem? Send me a PR.
+Do you have a solution to the problem? [Send me a PR](https://github.com/matheusfelipeog/worldometer/pulls)
 
-Did you like this project? [Click on the star](https://github.com/matheusfelipeog/worldometer/stargazers) ⭐
+Did you like this project? [Click on the star ⭐](https://github.com/matheusfelipeog/worldometer/stargazers)
 
 
 # License

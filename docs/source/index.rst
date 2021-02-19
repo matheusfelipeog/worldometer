@@ -37,7 +37,9 @@ Index
 
 - `Install <#id4>`_
 - `Demo <#id5>`_
-- `Indices and tables <#id6>`_
+- `Contributions <#id6>`_
+- `License <#id7>`_
+- `Indices and tables <#id8>`_
 
 **Worldometer Docs:**
 
@@ -181,6 +183,24 @@ Get all metrics with labels in dict format:
     'cellular_phones_sold_today': 98846,
     ...: ...  # compressed
 }
+
+
+Contributions
+-------------
+
+All contributions are welcome!
+
+Found a problem, want to give a tip? `open an issue <https://github.com/matheusfelipeog/worldometer/issues>`_
+
+Do you have a solution to the problem? `Send me a PR <https://github.com/matheusfelipeog/worldometer/pulls>`_
+
+Did you like this project? `Click on the star ⭐ <https://github.com/matheusfelipeog/worldometer/stargazers>`_
+
+
+License
+-------
+
+This project is using the MIT license, see in `MIT LICENSE <https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE>`_
 
 
 Indices and tables
