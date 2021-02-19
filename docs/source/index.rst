@@ -18,6 +18,10 @@ Worldometer: Scraping & API
     :alt: GitHub release (latest by date)
     :target: https://github.com/matheusfelipeog/worldometer/releases
 
+.. image:: https://readthedocs.org/projects/worldometer/badge/?version=latest&style=for-the-badge
+    :alt: Documentation Status
+    :target: https://worldometer.readthedocs.io/en/latest/?badge=latest
+
 .. image:: https://img.shields.io/github/license/matheusfelipeog/worldometer?style=for-the-badge
     :alt: License MIT
     :target: https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE
