@@ -4,22 +4,25 @@
 worldometer.api
 ---------------
 
-Implement a simplified api of worldometer.Worldometer Class.
+Implementation of a simplified API of the worldometer module.
 
 Examples
 --------
-API usage:
 
 >>> from worldometer import api
+
+All functions use ``get_metric_of`` at their core:
+
+>>> api.get_metric_of(label='computers_produced_this_year')
+{'computers_produced_this_year': 27760858}
+
+This is a simplified and self-explanatory API:
 
 >>> api.current_world_population()
 {'current_world_population': 7845085923}
 
 >>> api.tweets_sent_today()
 {'tweets_sent_today': 4539558}
-
->>> api.get_metric_of(label='computers_produced_this_year')
-{'computers_produced_this_year': 27760858}
 """
 
 
