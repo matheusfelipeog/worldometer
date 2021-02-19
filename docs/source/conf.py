@@ -48,13 +48,12 @@ html_theme_options = {
     'logo': 'worldometer.png',
     'description': 'Get current metrics in the world with this python module.',
     'fixed_sidebar': True,
-
     'github_user': 'matheusfelipeog',
     'github_repo': 'worldometer',
     'github_banner': True,
-
     'github_button': True,
-    'github_type': 'star'
+    'github_type': 'star',
+    'show_powered_by': False
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
