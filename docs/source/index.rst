@@ -79,7 +79,7 @@ First, create a directory and enter it::
 
 Create a virtual environment to avoid breaking dependence on other projects.
 
-This project uses `pipenv <https://pipenv.pypa.io/en/latest/>`_, it already does it alone ;)::
+This project uses `pipenv <https://pipenv.pypa.io/en/latest/>`_, it already does it alone 😆::
 
     $ pipenv install worldometer
 
