@@ -22,5 +22,5 @@ formats: all
 python:
   version: 3.8
   install:
-    - method: setuptools
-      path: .
+    - method: pip
+      path: docs/docs_requirements.txt
