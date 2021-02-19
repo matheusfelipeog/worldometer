@@ -41,6 +41,22 @@ templates_path = ['_templates']
 #
 html_theme = 'alabaster'
 
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation <https://alabaster.readthedocs.io/en/latest/customization.html>.
+html_theme_options = {
+    'logo': 'worldometer.png',
+    'description': 'Get current metrics in the world with this python module.',
+    'fixed_sidebar': True,
+
+    'github_user': 'matheusfelipeog',
+    'github_repo': 'worldometer',
+    'github_banner': True,
+
+    'github_button': True,
+    'github_type': 'star'
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
