@@ -1,25 +1,27 @@
 # -*- coding: utf-8 -*-
 
 """
-Worldometer Module
--------------------
+worldometer module
+------------------
 
 Get metrics from around the world in multiple categories.
 
-Simple API usage:
+Examples
+--------
+You can use the simplified API to collect the data:
 
 >>> import worldometer
 
 >>> worldometer.current_world_population()
-7845085923
+{'current_world_population': 7845085923}
 
 >>> worldometer.tweets_sent_today()
-4539558
+{'tweets_sent_today': 4539558}
 
 >>> worldometer.get_metric_of(label='computers_produced_this_year')
-27760858
+{'computers_produced_this_year': 27760858}
 
-... Or complete use with Worldometer Class:
+Or using Worldometer Class:
 
 >>> from worldometer import Worldometer
 >>> w = Worldometer()
@@ -46,7 +48,7 @@ Simple API usage:
     ...
 ]
 
->>> w.metrics
+>>> w.metrics()
 [   
     7845087963,
     15741371,
@@ -68,8 +70,6 @@ Simple API usage:
     'cellular_phones_sold_today': 98846,
     ...: ...
 }
-
-More info in: github.com/matheusfelipeog/worldometer
 """
 
 

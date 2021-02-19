@@ -13,5 +13,8 @@ build/
 dist/
 *.egg-info/
 
+# Ignore the docs build directory
+docs/build/
+
 # Ignore local tests
 local_test.py

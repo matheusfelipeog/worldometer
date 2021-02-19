@@ -35,7 +35,7 @@ setup(
     python_requires='>=3.6',
     project_urls={
         "Bug Tracker": "https://github.com/matheusfelipeog/worldometer/issues",
-        "Documentation": "https://github.com/matheusfelipeog/worldometer/blob/master/doc/README.md",
+        "Documentation": "https://worldometer.readthedocs.io",
         "Source Code": "https://github.com/matheusfelipeog/worldometer",
     },
     keywords=[
@@ -44,7 +44,7 @@ setup(
         'api', 'scraping', 'requests-html'
     ],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
         'License :: OSI Approved :: MIT License',

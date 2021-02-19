@@ -88,13 +88,13 @@ $ pip install worldometer
 >>> import worldometer
 
 >>> worldometer.current_world_population()
-7845085923
+{'current_world_population': 7845085923}
 
 >>> worldometer.tweets_sent_today()
-4539558
+{'tweets_sent_today': 4539558}
 
 >>> worldometer.get_metric_of(label='computers_produced_this_year')
-27760858
+{'computers_produced_this_year': 27760858}
 ```
 
 **Or complete use with Worldometer Class:**
@@ -125,7 +125,7 @@ $ pip install worldometer
     ...  # compressed
 ]
 
->>> w.metrics
+>>> w.metrics()
 [   
     7845087963,
     15741371,
@@ -154,11 +154,11 @@ $ pip install worldometer
 
 All contributions are welcome!
 
-Found a problem, want to give a tip? open an issue.
+Found a problem, want to give a tip? [open an issue](https://github.com/matheusfelipeog/worldometer/issues)
 
-Do you have a solution to the problem? Send me a PR.
+Do you have a solution to the problem? [Send me a PR](https://github.com/matheusfelipeog/worldometer/pulls)
 
-Did you like this project? [Click on the star](https://github.com/matheusfelipeog/worldometer/stargazers) ⭐
+Did you like this project? [Click on the star ⭐](https://github.com/matheusfelipeog/worldometer/stargazers)
 
 
 # License
