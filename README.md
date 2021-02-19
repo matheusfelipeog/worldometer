@@ -13,6 +13,9 @@
     <a href="https://github.com/matheusfelipeog/worldometer/releases">
         <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/worldometer?style=for-the-badge" />
     </a>
+    <a href='https://worldometer.readthedocs.io/en/latest/?badge=latest&style=for-the-badge'>
+        <img src='https://readthedocs.org/projects/worldometer/badge/?version=latest' alt='Documentation Status' />
+    </a>
     <a href="https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/matheusfelipeog/worldometer?style=for-the-badge" alt="License MIT" />
     </a>
