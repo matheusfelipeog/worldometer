@@ -56,6 +56,25 @@ html_theme_options = {
     'show_powered_by': False
 }
 
+# Custom sidebar templates, maps document names to template names.
+html_sidebars = {
+    'index': [
+        'about.html',
+        'localtoc.html',
+        'relations.html',
+        'sourcelink.html',
+        'searchbox.html'
+    ],
+    '**': [
+        'about.html',
+        'localtoc.html',
+        'navigation.html',
+        'relations.html',
+        'sourcelink.html',
+        'searchbox.html'
+    ]
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
