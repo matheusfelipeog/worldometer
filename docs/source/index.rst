@@ -6,15 +6,15 @@
 Worldometer: Scraping & API
 ===========================
 
-.. image:: https://img.shields.io/pypi/status/worldometer?style=for-the-badge
+.. image:: https://img.shields.io/pypi/status/worldometer
     :alt: PyPI - Status
     :target: https://pypi.org/project/worldometer/
 
-.. image:: https://img.shields.io/pypi/v/worldometer?style=for-the-badge
+.. image:: https://img.shields.io/pypi/v/worldometer
     :alt: PyPI
     :target: https://pypi.org/project/worldometer/
 
-.. image:: https://img.shields.io/github/v/release/matheusfelipeog/worldometer?style=for-the-badge
+.. image:: https://img.shields.io/github/v/release/matheusfelipeog/worldometer
     :alt: GitHub release (latest by date)
     :target: https://github.com/matheusfelipeog/worldometer/releases
 
@@ -22,7 +22,7 @@ Worldometer: Scraping & API
     :alt: Documentation Status
     :target: https://worldometer.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://img.shields.io/github/license/matheusfelipeog/worldometer?style=for-the-badge
+.. image:: https://img.shields.io/github/license/matheusfelipeog/worldometer
     :alt: License MIT
     :target: https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE
 
