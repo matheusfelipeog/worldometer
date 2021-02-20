@@ -21,6 +21,15 @@ project = 'worldometer'
 copyright = '2021, Matheus Felipe'
 author = 'Matheus Felipe'
 
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+version = 'v1.0'
+# The full version, including alpha/beta/rc tags.
+release = 'v1.0.1'
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
