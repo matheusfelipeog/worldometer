@@ -9,6 +9,3 @@ requests-html = "0.10.0"
 [dev-packages]
 pylint = "2.6.0"
 sphinx = "3.5.0"
-
-[requires]
-python_version = "3.8"
