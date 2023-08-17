@@ -6,7 +6,8 @@ __all__ = [
     'Health',
     'SocietyAndMedia',
     'Water',
-    'WorldPopulation'
+    'WorldPopulation',
+    'CountryCodes'
 ]
 
 from worldometer.world.ometers import (
@@ -19,3 +20,4 @@ from worldometer.world.ometers import (
     Water,
     WorldPopulation
 )
+from worldometer.world.country_codes import CountryCodes
