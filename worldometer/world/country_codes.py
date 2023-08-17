@@ -4,7 +4,7 @@ from typing import List
 
 
 @dataclass
-class CountryCodeData:
+class CountryCodesData:
     country: str
     calling_code: str
     three_letter_iso: str
@@ -17,8 +17,8 @@ class CountryCodes:
     def __init__(self) -> None:
         self._data = self._load_data()
 
-    def _load_data(self) -> List[CountryCodeData]:
+    def _load_data(self) -> List[CountryCodesData]:
         return []
 
-    def data(self) -> List[CountryCodeData]:
+    def data(self) -> List[CountryCodesData]:
         return deepcopy(self._data)
