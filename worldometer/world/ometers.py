@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from typing import List
 
@@ -147,10 +147,10 @@ class CountryCodeData:
     three_digit_iso_numeric: str
 
 
-@dataclass
 class CountryCodes:
-    _data: List[CountryCodeData] = field(
-        default_factory=list,
-        repr=False,
-        init=False
-    )
+
+    def __init__(self) -> None:
+        self._data = self._load_data()
+
+    def _load_data(self) -> List[CountryCodeData]:
+        return []
