@@ -1,3 +1,4 @@
+from copy import deepcopy
 from dataclasses import dataclass
 from typing import List
 
@@ -18,3 +19,6 @@ class CountryCodes:
 
     def _load_data(self) -> List[CountryCodeData]:
         return []
+
+    def data(self) -> List[CountryCodeData]:
+        return deepcopy(self._data)
