@@ -10,7 +10,7 @@ __all__ = [
     'CountryCodes'
 ]
 
-from worldometer.world.ometers import (
+from worldometer.world.counters import (
     Energy,
     Environment,
     Food,
