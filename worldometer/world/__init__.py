@@ -1,23 +1,7 @@
 __all__ = [
-    'Energy',
-    'Environment',
-    'Food',
-    'GovernmentAndEconomics',
-    'Health',
-    'SocietyAndMedia',
-    'Water',
-    'WorldPopulation',
+    'WorldCounters',
     'CountryCodes'
 ]
 
-from worldometer.world.counters import (
-    Energy,
-    Environment,
-    Food,
-    GovernmentAndEconomics,
-    Health,
-    SocietyAndMedia,
-    Water,
-    WorldPopulation
-)
+from worldometer.world.counters import WorldCounters
 from worldometer.world.country_codes import CountryCodes
