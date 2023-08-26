@@ -7,13 +7,14 @@ def get_rts_counters_only_with_last_value_key(rts_counters: Dict[str, dict]) -> 
     return {key: val.get('last_value') for key, val in rts_counters.items()}
 
 
-def get_html_table_data(
+def get_html_tables_data(
     html: str,
-    new_headers: List[str],
-    table_position: int = 0
-) -> List[dict]:
-    dfs = pd.read_html(html)
-    df = dfs[table_position]
-    df.columns = new_headers
-    data = df.to_dict(orient='records')
+    new_headers: List[List[str]],
+    attrs: Optional[Dict[str, str]]
+) -> List[List[dict]]:
+    data = []
+    dfs = pd.read_html(html, attrs=attrs)
+    for idx, df in enumerate(dfs):
+        df.columns = new_headers[idx]
+        data.append(df.to_dict(orient='records'))
     return data
