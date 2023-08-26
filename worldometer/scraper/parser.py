@@ -13,7 +13,7 @@ def get_html_tables_data(
     attrs: Optional[Dict[str, str]]
 ) -> List[List[dict]]:
     data = []
-    dfs = pd.read_html(html, attrs=attrs)
+    dfs = pd.read_html(html, attrs=attrs, flavor='bs4')
     for idx, df in enumerate(dfs):
         df.columns = new_headers[idx]
         data.append(df.to_dict(orient='records'))
