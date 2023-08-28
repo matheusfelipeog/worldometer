@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 from worldometer.scraper.browser import Browser
 from worldometer.scraper.parser import get_rts_counters_only_with_last_value_key
@@ -11,7 +11,7 @@ BASE_URL = 'https://www.worldometers.info'
 browser = Browser()
 
 
-def get_rts_counters_object() -> Dict[str, Optional[int]]:
+def get_rts_counters_object() -> Dict[str, Union[int, float, None]]:
     url = make_url(BASE_URL)
     html = browser.get_page_content(url)
     script_return = browser.run_js_script(html, script='() => rts_counters')
