@@ -41,5 +41,6 @@ class CountryCodes:
             for data_line in dts[self.table_position]
         ]
 
+    @property
     def data(self) -> List[CountryCodesData]:
         return deepcopy(self._data)
