@@ -14,6 +14,8 @@ class CountryCodesData:
 
 class CountryCodes:
 
+    source_path = '/country-codes'
+
     def __init__(self) -> None:
         self._data = self._load_data()
 

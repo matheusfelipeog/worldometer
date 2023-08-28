@@ -3,6 +3,9 @@ from typing import Dict
 
 
 class WorldCounters:
+
+    source_path = '/'
+
     def __init__(self) -> None:
         self._data = self._load_data()
         self._init_counters()
