@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Dict
+from typing import Dict, Union
 
 
 class WorldCounters:
@@ -10,7 +10,7 @@ class WorldCounters:
         self._data = self._load_data()
         self._init_counters()
 
-    def _load_data(self) -> Dict[str, int]:
+    def _load_data(self) -> Dict[str, Union[int, float, None]]:
         return {}
 
     def _init_counters(self) -> None:
@@ -30,7 +30,7 @@ class WorldCounters:
 
 @dataclass
 class WorldPopulation:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.current_population = self._data.get('current_population')
@@ -44,7 +44,7 @@ class WorldPopulation:
 
 @dataclass
 class GovernmentAndEconomics:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.public_healthcare_expenditure_today = self._data.get('gov_expenditures_health')
@@ -57,7 +57,7 @@ class GovernmentAndEconomics:
 
 @dataclass
 class SocietyAndMedia:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.new_book_titles_published_this_year = self._data.get('books_published')
@@ -74,7 +74,7 @@ class SocietyAndMedia:
 
 @dataclass
 class Environment:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.forest_loss_this_year = self._data.get('forest_loss')
@@ -86,7 +86,7 @@ class Environment:
 
 @dataclass
 class Food:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.undernourished_people_in_the_world = self._data.get('undernourished')
@@ -99,7 +99,7 @@ class Food:
 
 @dataclass
 class Water:
-    _data: Dict[str, int]
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.water_used_this_year = self._data.get('water_consumed')
@@ -109,7 +109,7 @@ class Water:
 
 @dataclass
 class Energy:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.energy_used_today = self._data.get('energy_used')
@@ -127,7 +127,7 @@ class Energy:
 
 @dataclass
 class Health:
-    _data: Dict[str, int] = field(repr=False)
+    _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
         self.communicable_disease_deaths_this_year = self._data.get('dth1s_communicable_disaxs')
