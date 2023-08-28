@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import Dict, Union
 
+from worldometer.scraper.controller import get_rts_counters_object
+
 
 class WorldCounters:
 
@@ -11,7 +13,8 @@ class WorldCounters:
         self._init_counters()
 
     def _load_data(self) -> Dict[str, Union[int, float, None]]:
-        return {}
+        rts_counters = get_rts_counters_object()
+        return rts_counters
 
     def _init_counters(self) -> None:
         self.world_population = WorldPopulation(self._data)
