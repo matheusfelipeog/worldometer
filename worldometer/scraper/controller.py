@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Tuple, Union
 
 from worldometer.scraper.browser import Browser
 from worldometer.scraper.parser import get_rts_counters_only_with_last_value_key
@@ -21,7 +21,7 @@ def get_rts_counters_object() -> Dict[str, Union[int, float, None]]:
 
 def get_data_tables(
     path_url: str,
-    new_headers: List[List[str]],
+    new_column_names: List[Tuple[str, ...]],
     render: bool = False,
     use_attrs: Optional[bool] = True
 ) -> List[List[dict]]:
@@ -30,5 +30,9 @@ def get_data_tables(
     html = browser.get_page_content(url)
     if render:
         browser.render_page(html)
-    data = get_html_tables_data(html.html, new_headers, attrs)
+    data = get_html_tables_data(
+        html=html.html,
+        new_column_names=new_column_names,
+        attrs=attrs
+    )
     return data

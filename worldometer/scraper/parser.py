@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Tuple, Union
 
 import pandas as pd
 
@@ -14,12 +14,12 @@ def get_rts_counters_only_with_last_value_key(
 
 def get_html_tables_data(
     html: str,
-    new_headers: List[List[str]],
-    attrs: Optional[Dict[str, str]]
+    attrs: Optional[Dict[str, str]],
+    new_column_names: List[Tuple[str, ...]]
 ) -> List[List[dict]]:
     data = []
     dfs = pd.read_html(html, attrs=attrs, flavor='bs4')
     for idx, df in enumerate(dfs):
-        df.columns = new_headers[idx]
+        df.columns = new_column_names[idx]
         data.append(df.to_dict(orient='records'))
     return data
