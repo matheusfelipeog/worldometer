@@ -2,6 +2,11 @@ from typing import Dict
 
 from requests_html import HTML, HTMLSession
 
+# pyppeteer is used by requests_html internally
+from pyppeteer.errors import ElementHandleError
+
+from worldometer.scraper.exceptions import ScriptRunnerError
+
 
 class Browser:
 
@@ -21,5 +26,10 @@ class Browser:
         html_obj.render()
 
     def run_js_script(self, html_obj: HTML, script: str) -> Dict[str, dict]:
-        script_return = html_obj.render(script=script)
+        try:
+            script_return = html_obj.render(script=script)
+
+        except ElementHandleError as err:
+            raise ScriptRunnerError('Could not evaluate provided js script in HTML.') from err
+
         return script_return  # type: ignore

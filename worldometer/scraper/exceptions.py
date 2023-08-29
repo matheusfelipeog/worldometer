@@ -2,6 +2,14 @@ class ScraperException(Exception):
     """Base exception of the scraper package."""
 
 
+class BrowserError(ScraperException):
+    """Generic browser error."""
+
+
+class ScriptRunnerError(BrowserError):
+    """Could not evaluate provided js script."""
+
+
 class ParserError(ScraperException):
     """Generic parser error."""
 
