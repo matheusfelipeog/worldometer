@@ -23,13 +23,14 @@ def get_data_tables(
     path_url: str,
     new_column_names: List[Tuple[str, ...]],
     render: bool = False,
-    use_attrs: Optional[bool] = True
+    attrs: Optional[Dict[str, str]] = {'class': 'table'}
 ) -> List[List[dict]]:
-    attrs = {'class': 'table'} if use_attrs else None
     url = make_url(BASE_URL, path_url)
     html = browser.get_page_content(url)
+
     if render:
         browser.render_page(html)
+
     data = get_html_tables_data(
         html=html.html,
         new_column_names=new_column_names,
