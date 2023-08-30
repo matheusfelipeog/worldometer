@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Any
 
 from requests_html import HTML, HTMLSession
 
@@ -25,7 +25,7 @@ class Browser:
     def render_page(self, html_obj: HTML) -> None:
         html_obj.render()
 
-    def run_js_script(self, html_obj: HTML, script: str) -> Dict[str, dict]:
+    def run_js_script(self, html_obj: HTML, script: str) -> Any:
         try:
             script_return = html_obj.render(script=script)
 
