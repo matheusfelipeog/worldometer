@@ -2,7 +2,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 from typing import List
 
-from worldometer.scraper.controller import get_data_tables
+from worldometer.scraper import get_data_tables
 
 
 @dataclass

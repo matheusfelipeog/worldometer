@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Dict, Union
 
-from worldometer.scraper.controller import get_rts_counters_object
+from worldometer.scraper import get_rts_counters_object
 
 
 class WorldCounters:

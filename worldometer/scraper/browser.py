@@ -3,7 +3,7 @@ from typing import Any
 from requests_html import HTML, HTMLSession
 
 # pyppeteer is used by requests_html internally
-from pyppeteer.errors import ElementHandleError
+from pyppeteer.errors import ElementHandleError, time
 
 from worldometer.scraper.exceptions import ScriptRunnerError
 
