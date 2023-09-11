@@ -3,7 +3,7 @@ from typing import Any
 from requests_html import HTML, HTMLSession
 
 # pyppeteer is used by requests_html internally
-from pyppeteer.errors import ElementHandleError, time
+from pyppeteer.errors import ElementHandleError, TimeoutError
 
 from worldometer.scraper.exceptions import ScriptRunnerError
 
@@ -29,7 +29,7 @@ class Browser:
         try:
             script_return = html_obj.render(script=script)
 
-        except ElementHandleError as err:
+        except (ElementHandleError, TimeoutError) as err:
             raise ScriptRunnerError('Could not evaluate provided js script in HTML.') from err
 
         return script_return  # type: ignore
