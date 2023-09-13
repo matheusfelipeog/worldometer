@@ -1,6 +1,9 @@
 import pytest
 
-from worldometer.scraper.parser import get_rts_counters_only_with_last_value_key
+from worldometer.scraper.parser import (
+    get_rts_counters_only_with_last_value_key,
+    get_html_tables_data
+)
 
 
 @pytest.fixture
@@ -24,6 +27,69 @@ def fake_rts_counters_object():
     }
 
 
+@pytest.fixture
+def fake_html():
+    return """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>HTML to Tests</title>
+        </head>
+        <body>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test</td>
+                        <td>1</td>
+                        <td>1.0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>test</td>
+                        <td>1</td>
+                        <td>1.0</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test</td>
+                        <td>1</td>
+                        <td>1.0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>test</td>
+                        <td>1</td>
+                        <td>1.0</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </body>
+        </html>
+"""
+
+
 def test_get_rts_counters_only_with_last_value_key(fake_rts_counters_object: dict):
 
     rts_counters = get_rts_counters_only_with_last_value_key(fake_rts_counters_object)
@@ -43,3 +109,46 @@ def test_empty_rts_counters_object_passed():
 
     assert isinstance(rts_counters, dict)
     assert len(rts_counters) == 0
+
+
+def test_get_html_tables_data(fake_html: str):
+    num_expected_tables = 2
+    attrs = None
+    new_column_names = [('A1', 'B1', 'C1', 'D1'), ('A2', 'B2', 'C2', 'D2')]
+
+    data = get_html_tables_data(
+        html=fake_html,
+        attrs=attrs,
+        new_column_names=new_column_names
+    )
+
+    assert isinstance(data, list)
+    assert len(data) == num_expected_tables
+
+    all_table_data = [td for td in data]
+    assert all(isinstance(td, list) for td in all_table_data)
+
+    data_lines = [
+        data_line
+        for td in all_table_data
+        for data_line in td
+    ]
+    assert all(
+        isinstance(dl, dict)
+        for dl in data_lines
+    )
+
+    assert all(
+        tuple(dl.keys()) in new_column_names
+        for dl in data_lines
+    )
+
+    data_lines_values = [
+        value
+        for dl in data_lines
+        for value in dl.values()
+    ]
+    assert all(
+        isinstance(value, (int, float, str))
+        for value in data_lines_values
+    )
