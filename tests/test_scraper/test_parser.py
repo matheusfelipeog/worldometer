@@ -5,7 +5,8 @@ from worldometer.scraper.parser import (
     get_html_tables_data
 )
 from worldometer.scraper.exceptions import (
-    ColumnNamesLengthError
+    ColumnNamesLengthError,
+    HTMLTablesNotFoundError
 )
 
 
@@ -215,3 +216,19 @@ def test_get_html_tables_data_with_wrong_length_of_new_column_names(fake_html):
             attrs=None,
             new_column_names=[('A1', 'B1', 'C1', 'D1', 'E1'), ('A2', 'B2', 'C2', 'D2', 'E2')]
         )
+
+
+def test_get_html_tables_data_when_there_is_no_html_table():
+    html = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>HTML to Tests</title>
+        </head>
+        <body>
+        </body>
+        </html>
+    """
+
+    with pytest.raises(HTMLTablesNotFoundError):
+        get_html_tables_data(html, attrs=None, new_column_names=[])
