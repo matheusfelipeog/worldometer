@@ -42,7 +42,7 @@ def get_html_tables_data(
 
             if col_len != new_col_len:
                 raise ColumnNamesLengthError(
-                    f'Table in position {idx} expected {col_len} columns but received {new_col_len}'
+                    f'Table in position {idx} expected {col_len} column names but received {new_col_len}'
                 )
 
             df.columns = new_column_names[idx]
