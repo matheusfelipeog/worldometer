@@ -198,24 +198,20 @@ def test_get_html_tables_data_with_attrs(fake_html: str):
     ), 'The column value is not of a supported type. It is expected to be int, float or str.'
 
 
-def test_get_html_tables_data_with_wrong_length_of_new_column_names(fake_html):
-
+@pytest.mark.parametrize(
+    'new_column_names',
+    [
+        [],
+        [('A1', 'B1', 'C1', 'D1')],
+        [('A1',), ('A2',), ('A3',)],
+        [tuple(), tuple()],
+        [('A1', 'B1'), ('A2', 'B2')],
+        [('A1', 'B1', 'C1', 'D1', 'E1'), ('A2', 'B2', 'C2', 'D2', 'E2')]
+    ]
+)
+def test_get_html_tables_data_with_wrong_length_of_new_column_names(fake_html, new_column_names):
     with pytest.raises(ColumnNamesLengthError):
-        get_html_tables_data(fake_html, attrs=None, new_column_names=[])
-
-        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1', 'B1', 'C1', 'D1')])
-
-        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1',), ('A2',), ('A3',)])
-
-        get_html_tables_data(fake_html, attrs=None, new_column_names=[tuple(), tuple()])
-
-        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1', 'B1'), ('A2', 'B2')])
-
-        get_html_tables_data(
-            fake_html,
-            attrs=None,
-            new_column_names=[('A1', 'B1', 'C1', 'D1', 'E1'), ('A2', 'B2', 'C2', 'D2', 'E2')]
-        )
+        get_html_tables_data(fake_html, attrs=None, new_column_names=new_column_names)
 
 
 def test_get_html_tables_data_when_there_is_no_html_table():
