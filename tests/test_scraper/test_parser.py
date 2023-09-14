@@ -232,3 +232,8 @@ def test_get_html_tables_data_when_there_is_no_html_table():
 
     with pytest.raises(HTMLTablesNotFoundError):
         get_html_tables_data(html, attrs=None, new_column_names=[])
+
+
+def test_get_html_tables_data_when_there_is_no_html_document():
+    with pytest.raises(ValueError):
+        get_html_tables_data(html='', attrs=None, new_column_names=[])
