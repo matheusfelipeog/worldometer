@@ -130,27 +130,27 @@ def test_get_html_tables_data(fake_html: str):
         isinstance(td, list) for td in all_table_data
     ), 'Table with wrong type. Each data table must be a list.'
 
-    data_lines = [
-        data_line
+    data_rows = [
+        data_row
         for td in all_table_data
-        for data_line in td
+        for data_row in td
     ]
     assert all(
-        isinstance(dl, dict)
-        for dl in data_lines
-    ), 'Data line with wrong type. Each row of data must be a dict.'
+        isinstance(dr, dict)
+        for dr in data_rows
+    ), 'Data row with wrong type. Each row of data must be a dict.'
 
     assert all(
-        tuple(dl.keys()) in new_column_names
-        for dl in data_lines
+        tuple(dr.keys()) in new_column_names
+        for dr in data_rows
     ), 'The column names are wrong. They are expected to match the column names passed.'
 
-    data_lines_values = [
+    data_rows_values = [
         value
-        for dl in data_lines
-        for value in dl.values()
+        for dr in data_rows
+        for value in dr.values()
     ]
     assert all(
         isinstance(value, (int, float, str))
-        for value in data_lines_values
+        for value in data_rows_values
     ), 'The column value is not of a supported type. It is expected to be int, float or str.'
