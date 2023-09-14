@@ -46,7 +46,6 @@ def get_html_tables_data(
                 )
 
             df.columns = new_column_names[idx]
-            df.fillna('n/a', inplace=True)
 
             data.append(df.to_dict(orient='records'))
 
