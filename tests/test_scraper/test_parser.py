@@ -4,6 +4,9 @@ from worldometer.scraper.parser import (
     get_rts_counters_only_with_last_value_key,
     get_html_tables_data
 )
+from worldometer.scraper.exceptions import (
+    ColumnNamesLengthError
+)
 
 
 @pytest.fixture
@@ -192,3 +195,23 @@ def test_get_html_tables_data_with_attrs(fake_html: str):
         isinstance(value, (int, float, str))
         for value in data_rows_values
     ), 'The column value is not of a supported type. It is expected to be int, float or str.'
+
+
+def test_get_html_tables_data_with_wrong_lenght_of_new_column_names(fake_html):
+
+    with pytest.raises(ColumnNamesLengthError):
+        get_html_tables_data(fake_html, attrs=None, new_column_names=[])
+
+        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1', 'B1', 'C1', 'D1')])
+
+        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1',), ('A2',), ('A3',)])
+
+        get_html_tables_data(fake_html, attrs=None, new_column_names=[tuple(), tuple()])
+
+        get_html_tables_data(fake_html, attrs=None, new_column_names=[('A1', 'B1'), ('A2', 'B2')])
+
+        get_html_tables_data(
+            fake_html,
+            attrs=None,
+            new_column_names=[('A1', 'B1', 'C1', 'D1', 'E1'), ('A2', 'B2', 'C2', 'D2', 'E2')]
+        )
