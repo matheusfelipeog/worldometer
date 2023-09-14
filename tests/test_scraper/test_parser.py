@@ -154,3 +154,41 @@ def test_get_html_tables_data(fake_html: str):
         isinstance(value, (int, float, str))
         for value in data_rows_values
     ), 'The column value is not of a supported type. It is expected to be int, float or str.'
+
+
+def test_get_html_tables_data_with_attrs(fake_html: str):
+    num_expected_tables = 1
+    attrs = {'class': 'table'}
+    new_column_names = [('A1', 'B1', 'C1', 'D1')]
+
+    data = get_html_tables_data(
+        html=fake_html,
+        attrs=attrs,
+        new_column_names=new_column_names  # type: ignore
+    )
+
+    assert isinstance(data, list)
+    assert len(data) == num_expected_tables
+
+    table_data = data[0]
+    assert isinstance(table_data, list)
+
+    assert all(
+        isinstance(data_row, dict)
+        for data_row in table_data
+    ), 'Data row with wrong type. Each row of data must be a dict.'
+
+    assert all(
+        tuple(dr.keys()) in new_column_names
+        for dr in table_data
+    ), 'The column names are wrong. They are expected to match the column names passed.'
+
+    data_rows_values = [
+        value
+        for dr in table_data
+        for value in dr.values()
+    ]
+    assert all(
+        isinstance(value, (int, float, str))
+        for value in data_rows_values
+    ), 'The column value is not of a supported type. It is expected to be int, float or str.'
