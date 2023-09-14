@@ -126,7 +126,9 @@ def test_get_html_tables_data(fake_html: str):
     assert len(data) == num_expected_tables
 
     all_table_data = [td for td in data]
-    assert all(isinstance(td, list) for td in all_table_data)
+    assert all(
+        isinstance(td, list) for td in all_table_data
+    ), 'Table with wrong type. Each data table must be a list.'
 
     data_lines = [
         data_line
@@ -136,12 +138,12 @@ def test_get_html_tables_data(fake_html: str):
     assert all(
         isinstance(dl, dict)
         for dl in data_lines
-    )
+    ), 'Data line with wrong type. Each row of data must be a dict.'
 
     assert all(
         tuple(dl.keys()) in new_column_names
         for dl in data_lines
-    )
+    ), 'The column names are wrong. They are expected to match the column names passed.'
 
     data_lines_values = [
         value
@@ -151,4 +153,4 @@ def test_get_html_tables_data(fake_html: str):
     assert all(
         isinstance(value, (int, float, str))
         for value in data_lines_values
-    )
+    ), 'The column value is not of a supported type. It is expected to be int, float or str.'
