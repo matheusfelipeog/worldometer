@@ -1,5 +1,7 @@
 from typing import Dict, List, Optional, Tuple, Union
 
+from io import StringIO
+
 import pandas as pd
 
 from worldometer.scraper.exceptions import (
@@ -25,7 +27,7 @@ def get_html_tables_data(
     data = []
 
     try:
-        dfs = pd.read_html(html, attrs=attrs, flavor='bs4')
+        dfs = pd.read_html(io=StringIO(html), attrs=attrs, flavor='bs4')
 
         dfs_len = len(dfs)
         col_names_len = len(new_column_names)
