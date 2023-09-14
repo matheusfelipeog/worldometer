@@ -197,7 +197,7 @@ def test_get_html_tables_data_with_attrs(fake_html: str):
     ), 'The column value is not of a supported type. It is expected to be int, float or str.'
 
 
-def test_get_html_tables_data_with_wrong_lenght_of_new_column_names(fake_html):
+def test_get_html_tables_data_with_wrong_length_of_new_column_names(fake_html):
 
     with pytest.raises(ColumnNamesLengthError):
         get_html_tables_data(fake_html, attrs=None, new_column_names=[])
