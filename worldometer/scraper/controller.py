@@ -1,12 +1,16 @@
 from typing import Dict, List, Optional, Tuple, Union
 
 from worldometer.scraper.browser import Browser
-from worldometer.scraper.parser import get_rts_counters_only_with_last_value_key
-from worldometer.scraper.parser import get_html_tables_data
+
+from worldometer.scraper.parser import (
+    get_rts_counters_only_with_last_value_key,
+    get_html_tables_data
+)
 
 from worldometer.scraper.utils import make_url
 
-BASE_URL = 'https://www.worldometers.info'
+from worldometer.scraper.consts import BASE_URL
+
 
 browser = Browser()
 
