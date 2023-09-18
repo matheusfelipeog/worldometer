@@ -18,7 +18,7 @@ class CountryCodes:
 
     source_path = '/country-codes'
     table_position = 0
-    column_names = (
+    new_column_names = (
         'country',
         'calling_code',
         'three_letter_iso',
@@ -33,7 +33,7 @@ class CountryCodes:
         dts = get_data_tables(
             path_url=self.source_path,
             new_column_names=[
-                self.column_names
+                self.new_column_names
             ]
         )
         return [
