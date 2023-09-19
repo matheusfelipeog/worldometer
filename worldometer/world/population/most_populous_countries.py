@@ -87,16 +87,16 @@ class MostPopulousCountries:
 
         return (
             [
-                CurrentMostPopulousCountriesData(**data_line)
-                for data_line in dts[CurrentMostPopulousCountriesData.table_position]
+                CurrentMostPopulousCountriesData(**data_row)
+                for data_row in dts[CurrentMostPopulousCountriesData.table_position]
             ],
             [
-                PastMostPopulousCountriesData(**data_line)
-                for data_line in dts[PastMostPopulousCountriesData.table_position]
+                PastMostPopulousCountriesData(**data_row)
+                for data_row in dts[PastMostPopulousCountriesData.table_position]
             ],
             [
-                FutureMostPopulousCountriesData(**data_line)
-                for data_line in dts[FutureMostPopulousCountriesData.table_position]
+                FutureMostPopulousCountriesData(**data_row)
+                for data_row in dts[FutureMostPopulousCountriesData.table_position]
             ]
         )
 

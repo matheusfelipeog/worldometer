@@ -51,8 +51,8 @@ class CountriesByPopulation:
             ]
         )
         return [
-            CountriesByPopulationData(**data_line)
-            for data_line in dts[self.table_position]
+            CountriesByPopulationData(**data_row)
+            for data_row in dts[self.table_position]
         ]
 
     @property

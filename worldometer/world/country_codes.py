@@ -37,8 +37,8 @@ class CountryCodes:
             ]
         )
         return [
-            CountryCodesData(**data_line)
-            for data_line in dts[self.table_position]
+            CountryCodesData(**data_row)
+            for data_row in dts[self.table_position]
         ]
 
     @property
