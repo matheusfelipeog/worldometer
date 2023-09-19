@@ -13,7 +13,7 @@ class CountryCodesData:
     two_letter_iso: str
     three_digit_iso_numeric: str
 
-    table_position = 0
+    _table_position = 0
 
 
 class CountryCodes:
@@ -39,7 +39,7 @@ class CountryCodes:
         )
         return [
             CountryCodesData(**data_row)
-            for data_row in dts[CountryCodesData.table_position]
+            for data_row in dts[CountryCodesData._table_position]
         ]
 
     @property

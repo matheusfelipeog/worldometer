@@ -13,7 +13,7 @@ class CurrentMostPopulousCountriesData:
     yearly_change: str
     world_share: str
 
-    table_position = 0
+    _table_position = 0
 
 
 @dataclass
@@ -24,7 +24,7 @@ class PastMostPopulousCountriesData:
     world_share: str
     rank: str
 
-    table_position = 1
+    _table_position = 1
 
 
 @dataclass
@@ -35,7 +35,7 @@ class FutureMostPopulousCountriesData:
     world_share: str
     rank: str
 
-    table_position = 2
+    _table_position = 2
 
 
 class MostPopulousCountries:
@@ -85,15 +85,15 @@ class MostPopulousCountries:
         return (
             [
                 CurrentMostPopulousCountriesData(**data_row)
-                for data_row in dts[CurrentMostPopulousCountriesData.table_position]
+                for data_row in dts[CurrentMostPopulousCountriesData._table_position]
             ],
             [
                 PastMostPopulousCountriesData(**data_row)
-                for data_row in dts[PastMostPopulousCountriesData.table_position]
+                for data_row in dts[PastMostPopulousCountriesData._table_position]
             ],
             [
                 FutureMostPopulousCountriesData(**data_row)
-                for data_row in dts[FutureMostPopulousCountriesData.table_position]
+                for data_row in dts[FutureMostPopulousCountriesData._table_position]
             ]
         )
 

@@ -20,7 +20,7 @@ class CountriesByPopulationData:
     urban_population: str
     world_share: str
 
-    table_position = 0
+    _table_position = 0
 
 
 class CountriesByPopulation:
@@ -53,7 +53,7 @@ class CountriesByPopulation:
         )
         return [
             CountriesByPopulationData(**data_row)
-            for data_row in dts[CountriesByPopulationData.table_position]
+            for data_row in dts[CountriesByPopulationData._table_position]
         ]
 
     @property
