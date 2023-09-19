@@ -1,8 +1,8 @@
 from copy import deepcopy
 from dataclasses import dataclass
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
-from worldometer.scraper import get_data_tables
+from worldometer.scraper import get_data_tables, get_rts_counters_object
 
 
 @dataclass
@@ -122,6 +122,10 @@ class AsiaPopulation:
                 for data_row in dts[ForecastData._table_position]
             ]
         )
+
+    def live(self) -> Union[int, float, None]:
+        rts_counters = get_rts_counters_object(path_url=self.source_path)
+        return rts_counters.get('asia-population')
 
     def subregions(self) -> List[SubregionsData]:
         return deepcopy(self._data[0])
