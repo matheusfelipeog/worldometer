@@ -14,13 +14,6 @@ class CurrentMostPopulousCountriesData:
     world_share: str
 
     table_position = 0
-    new_column_names = (
-        'position',
-        'country',
-        'population',
-        'yearly_change',
-        'world_share'
-    )
 
 
 @dataclass
@@ -32,13 +25,6 @@ class PastMostPopulousCountriesData:
     rank: str
 
     table_position = 1
-    new_column_names = (
-        'position',
-        'country',
-        'population',
-        'world_share',
-        'rank'
-    )
 
 
 @dataclass
@@ -50,22 +36,33 @@ class FutureMostPopulousCountriesData:
     rank: str
 
     table_position = 2
-    new_column_names = (
-        'position',
-        'country',
-        'population',
-        'world_share',
-        'rank'
-    )
 
 
 class MostPopulousCountries:
 
     source_path = '/population/most-populous-countries'
     new_column_names = (
-        CurrentMostPopulousCountriesData.new_column_names,
-        PastMostPopulousCountriesData.new_column_names,
-        FutureMostPopulousCountriesData.new_column_names
+        (
+            'position',
+            'country',
+            'population',
+            'yearly_change',
+            'world_share'
+        ),
+        (
+            'position',
+            'country',
+            'population',
+            'world_share',
+            'rank'
+        ),
+        (
+            'position',
+            'country',
+            'population',
+            'world_share',
+            'rank'
+        )
     )
 
     def __init__(self) -> None:
