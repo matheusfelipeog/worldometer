@@ -4,7 +4,8 @@ __all__ = [
     'MostPopulousCountries',
     'WorldPopulationByRegion',
     'WorldPopulationByYear',
-    'WorldPopulationProjections'
+    'WorldPopulationProjections',
+    'AsiaPopulation'
 ]
 
 from worldometer.world.population.countries_by_population import CountriesByPopulation
@@ -13,3 +14,4 @@ from worldometer.world.population.most_populous_countries import MostPopulousCou
 from worldometer.world.population.by_region import WorldPopulationByRegion
 from worldometer.world.population.by_year import WorldPopulationByYear
 from worldometer.world.population.projections import WorldPopulationProjections
+from worldometer.world.population.asia import AsiaPopulation
