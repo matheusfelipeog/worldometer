@@ -20,11 +20,12 @@ class CountriesByPopulationData:
     urban_population: str
     world_share: str
 
+    table_position = 0
+
 
 class CountriesByPopulation:
 
     source_path = '/world-population/population-by-country'
-    table_position = 0
     new_column_names = (
         'position',
         'country',
@@ -52,7 +53,7 @@ class CountriesByPopulation:
         )
         return [
             CountriesByPopulationData(**data_row)
-            for data_row in dts[self.table_position]
+            for data_row in dts[CountriesByPopulationData.table_position]
         ]
 
     @property

@@ -13,11 +13,12 @@ class CountryCodesData:
     two_letter_iso: str
     three_digit_iso_numeric: str
 
+    table_position = 0
+
 
 class CountryCodes:
 
     source_path = '/country-codes'
-    table_position = 0
     new_column_names = (
         'country',
         'calling_code',
@@ -38,7 +39,7 @@ class CountryCodes:
         )
         return [
             CountryCodesData(**data_row)
-            for data_row in dts[self.table_position]
+            for data_row in dts[CountryCodesData.table_position]
         ]
 
     @property
