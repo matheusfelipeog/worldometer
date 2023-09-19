@@ -13,7 +13,7 @@ class WorldCounters:
         self._init_counters()
 
     def _load_data(self) -> Dict[str, Union[int, float, None]]:
-        rts_counters = get_rts_counters_object()
+        rts_counters = get_rts_counters_object(path_url=self.source_path)
         return rts_counters
 
     def _init_counters(self) -> None:

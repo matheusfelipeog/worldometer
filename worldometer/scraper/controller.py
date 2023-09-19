@@ -15,8 +15,10 @@ from worldometer.scraper.consts import BASE_URL
 browser = Browser()
 
 
-def get_rts_counters_object() -> Dict[str, Union[int, float, None]]:
-    url = make_url(BASE_URL)
+def get_rts_counters_object(
+        path_url: Optional[str] = None
+) -> Dict[str, Union[int, float, None]]:
+    url = make_url(BASE_URL, path_url)
     html = browser.get_page_content(url)
     script_return = browser.run_js_script(html, script='() => rts_counters')
     rts_counters = get_rts_counters_only_with_last_value_key(rts_counters=script_return)
