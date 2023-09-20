@@ -1,4 +1,5 @@
 __all__ = [
+    'LargestCountries',
     'WorldCountries',
     'AsiaCountries',
     'AfricaCountries',
@@ -8,6 +9,7 @@ __all__ = [
     'OceaniaCountries'
 ]
 
+from worldometer.world.geography.largest_countries import LargestCountries
 from worldometer.world.geography.countries import (
     WorldCountries,
     AsiaCountries,
