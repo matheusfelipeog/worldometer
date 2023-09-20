@@ -108,10 +108,10 @@ class WorldPopulationByRegion:
         )
 
     def current(self) -> List[CurrentWorldPopulationByRegionData]:
-        return deepcopy(self._data[0])
+        return deepcopy(self._data[CurrentWorldPopulationByRegionData._table_position])  # type: ignore
 
     def past(self) -> List[PastWorldPopulationByRegionData]:
-        return deepcopy(self._data[1])
+        return deepcopy(self._data[PastWorldPopulationByRegionData._table_position])  # type: ignore
 
     def future(self) -> List[FutureWorldPopulationByRegionData]:
-        return deepcopy(self._data[2])
+        return deepcopy(self._data[FutureWorldPopulationByRegionData._table_position])  # type: ignore

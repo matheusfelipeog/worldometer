@@ -98,10 +98,10 @@ class MostPopulousCountries:
         )
 
     def current(self) -> List[CurrentMostPopulousCountriesData]:
-        return deepcopy(self._data[0])
+        return deepcopy(self._data[CurrentMostPopulousCountriesData._table_position])  # type: ignore
 
     def past(self) -> List[PastMostPopulousCountriesData]:
-        return deepcopy(self._data[1])
+        return deepcopy(self._data[PastMostPopulousCountriesData._table_position])  # type: ignore
 
     def future(self) -> List[FutureMostPopulousCountriesData]:
-        return deepcopy(self._data[2])
+        return deepcopy(self._data[FutureMostPopulousCountriesData._table_position])  # type: ignore
