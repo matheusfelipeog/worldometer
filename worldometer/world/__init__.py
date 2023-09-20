@@ -1,11 +1,11 @@
 __all__ = [
-    'WorldCounters',
-    'CountryCodes',
+    'geography',
     'population',
-    'geography'
+    'CountryCodes',
+    'WorldCounters'
 ]
 
-from worldometer.world.counters import WorldCounters
-from worldometer.world.country_codes import CountryCodes
-from worldometer.world import population
 from worldometer.world import geography
+from worldometer.world import population
+from worldometer.world.country_codes import CountryCodes
+from worldometer.world.counters import WorldCounters
