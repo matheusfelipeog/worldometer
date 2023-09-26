@@ -7,7 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CountriesByPopulationData:
-    position: int
+    idx: int
     country: str
     population: int
     yearly_change: str
@@ -27,7 +27,7 @@ class CountriesByPopulation:
 
     source_path = '/world-population/population-by-country'
     new_column_names = (
-        'position',
+        'idx',
         'country',
         'population',
         'yearly_change',

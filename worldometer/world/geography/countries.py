@@ -7,7 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class WorldCountriesData:
-    position: int
+    idx: int
     country: str
     population: int
     world_share: str
@@ -18,7 +18,7 @@ class WorldCountriesData:
 
 @dataclass
 class CountryData:
-    position: int
+    idx: int
     country: str
     population: int
     subregion: str
@@ -28,7 +28,7 @@ class CountryData:
 
 @dataclass
 class DependencyData:
-    position: int
+    idx: int
     territory: str
     population: int
     dependency_of: str
@@ -40,7 +40,7 @@ class WorldCountries:
 
     source_path = '/geography/how-many-countries-are-there-in-the-world'
     new_column_names = (
-        'position',
+        'idx',
         'country',
         'population',
         'world_share',
@@ -72,13 +72,13 @@ class _RegionCountries:
     source_path = '[override]'
     new_column_names = (
         (
-            'position',
+            'idx',
             'country',
             'population',
             'subregion'
         ),
         (
-            'position',
+            'idx',
             'territory',
             'population',
             'dependency_of'

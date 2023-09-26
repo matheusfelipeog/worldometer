@@ -7,7 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class LargestCountriesData:
-    position: int
+    idx: int
     country: str
     total_area_km2: int
     total_area_mi2: int
@@ -22,7 +22,7 @@ class LargestCountries:
 
     source_path = '/geography/largest-countries-in-the-world'
     new_column_names = (
-        'position',
+        'idx',
         'country',
         'total_area_km2',
         'total_area_mi2',

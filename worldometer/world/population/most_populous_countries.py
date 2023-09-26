@@ -7,7 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentMostPopulousCountriesData:
-    position: int
+    idx: int
     country: str
     population: int
     yearly_change: str
@@ -18,7 +18,7 @@ class CurrentMostPopulousCountriesData:
 
 @dataclass
 class PastMostPopulousCountriesData:
-    position: int
+    idx: int
     country: str
     population: int
     world_share: str
@@ -29,7 +29,7 @@ class PastMostPopulousCountriesData:
 
 @dataclass
 class FutureMostPopulousCountriesData:
-    position: int
+    idx: int
     country: str
     population: int
     world_share: str
@@ -43,21 +43,21 @@ class MostPopulousCountries:
     source_path = '/population/most-populous-countries'
     new_column_names = (
         (
-            'position',
+            'idx',
             'country',
             'population',
             'yearly_change',
             'world_share'
         ),
         (
-            'position',
+            'idx',
             'country',
             'population',
             'world_share',
             'rank'
         ),
         (
-            'position',
+            'idx',
             'country',
             'population',
             'world_share',

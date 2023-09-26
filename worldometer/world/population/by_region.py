@@ -7,7 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentWorldPopulationByRegionData:
-    position: int
+    idx: int
     region: str
     population: int
     yearly_change: str
@@ -25,7 +25,7 @@ class CurrentWorldPopulationByRegionData:
 
 @dataclass
 class PastWorldPopulationByRegionData:
-    position: int
+    idx: int
     region: str
     population: int
     world_share: str
@@ -35,7 +35,7 @@ class PastWorldPopulationByRegionData:
 
 @dataclass
 class FutureWorldPopulationByRegionData:
-    position: int
+    idx: int
     region: str
     population: int
     world_share: str
@@ -48,7 +48,7 @@ class WorldPopulationByRegion:
     source_path = '/world-population/population-by-region'
     new_column_names = (
         (
-            'position',
+            'idx',
             'region',
             'population',
             'yearly_change',
@@ -62,13 +62,13 @@ class WorldPopulationByRegion:
             'world_share'
         ),
         (
-            'position',
+            'idx',
             'region',
             'population',
             'world_share'
         ),
         (
-            'position',
+            'idx',
             'region',
             'population',
             'world_share'
