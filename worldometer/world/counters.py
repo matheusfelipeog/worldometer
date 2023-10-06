@@ -5,7 +5,42 @@ from worldometer.scraper import get_rts_counters_object
 
 
 class WorldCounters:
+    """Contains a reference to each section of the home page counters.
 
+    Attributes
+    ----------
+    source_path : str
+        The source path for the counters.
+    world_population : WorldPopulation
+        An instance of the `WorldPopulation` class that stores all counters
+        related to population data.
+    government_and_economics : GovernmentAndEconomics
+        An instance of the `GovernmentAndEconomics` class that stores all
+        counters related to government and economic data.
+    society_and_media : SocietyAndMedia
+        An instance of the `SocietyAndMedia` class that stores all counters
+        related to society and media data.
+    environment : Environment
+        An instance of the `Environment` class that stores all counters related
+        to environmental data.
+    food : Food
+        An instance of the `Food` class that stores all counters related to
+        food data.
+    water : Water
+        An instance of the `Water` class that stores all counters related to
+        water data.
+    energy : Energy
+        An instance of the `Energy` class that stores all counters related to
+        energy data.
+    health : Health
+        An instance of the `Health` class that stores all counters related to
+        health data.
+
+    Notes
+    -----
+    For precise and up-to-date information on each section and its counters,
+    please check the `worldometers homepage <https://www.worldometers.info/>`_.
+    """
     source_path = '/'
 
     def __init__(self) -> None:
@@ -26,13 +61,15 @@ class WorldCounters:
         self.energy = Energy(self._data)
         self.health = Health(self._data)
 
-    def reload_data(self):
+    def reload_data(self) -> None:
+        """Reload all counters data. This loads the available updated data."""
         self._data = self._load_data()
         self._init_counters()
 
 
 @dataclass
 class WorldPopulation:
+    """Counters related to world population data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -47,6 +84,7 @@ class WorldPopulation:
 
 @dataclass
 class GovernmentAndEconomics:
+    """Counters related to government and economic data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -60,6 +98,7 @@ class GovernmentAndEconomics:
 
 @dataclass
 class SocietyAndMedia:
+    """Counters related to society and media data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -77,6 +116,7 @@ class SocietyAndMedia:
 
 @dataclass
 class Environment:
+    """Counters related to environmental data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -89,6 +129,7 @@ class Environment:
 
 @dataclass
 class Food:
+    """Counters related to food data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -102,6 +143,7 @@ class Food:
 
 @dataclass
 class Water:
+    """Counters related to water data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -112,6 +154,7 @@ class Water:
 
 @dataclass
 class Energy:
+    """Counters related to energy data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -130,6 +173,7 @@ class Energy:
 
 @dataclass
 class Health:
+    """Counters related to health data."""
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
