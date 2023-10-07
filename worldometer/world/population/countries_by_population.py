@@ -38,7 +38,7 @@ class CountriesByPopulation:
     Notes
     -----
     Check the source table in
-    `Countries in the world by population <https://www.worldometers.info/country-codes/>`_.
+    `Countries in the world by population <https://www.worldometers.info/world-population/population-by-country>`_.
     """
     source_path = '/world-population/population-by-country'
     new_column_names = (
