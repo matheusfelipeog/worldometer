@@ -61,6 +61,7 @@ class CountryCodes:
     def data(self) -> List[CountryCodesData]:
         """Get a list of all the data from the table.
 
-        Each index in the list contains an object representing a data row of the table.
+        Each index in the list contains an object representing
+        a data row of the table.
         """
         return deepcopy(self._data)
