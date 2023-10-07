@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentMostPopulousCountriesData:
+    """Represents a data row from the respective table."""
     idx: int
     country: str
     population: int
@@ -18,6 +19,7 @@ class CurrentMostPopulousCountriesData:
 
 @dataclass
 class PastMostPopulousCountriesData:
+    """Represents a data row from the respective table."""
     idx: int
     country: str
     population: int
@@ -29,6 +31,7 @@ class PastMostPopulousCountriesData:
 
 @dataclass
 class FutureMostPopulousCountriesData:
+    """Represents a data row from the respective table."""
     idx: int
     country: str
     population: int
@@ -39,7 +42,21 @@ class FutureMostPopulousCountriesData:
 
 
 class MostPopulousCountries:
+    """Represents the data table of most populous countries in the world.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in
+    `Most populous countries in the world <https://www.worldometers.info/population/most-populous-countries>`_.
+    """
     source_path = '/population/most-populous-countries'
     new_column_names = (
         (
@@ -98,10 +115,31 @@ class MostPopulousCountries:
         )
 
     def current(self) -> List[CurrentMostPopulousCountriesData]:
+        """Get a list of all the current data from the table.
+
+        These data are related to the current year.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[CurrentMostPopulousCountriesData._table_position])  # type: ignore
 
     def past(self) -> List[PastMostPopulousCountriesData]:
+        """Get a list of all historical data from the table.
+
+        These data pertain to the year 1950.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[PastMostPopulousCountriesData._table_position])  # type: ignore
 
     def future(self) -> List[FutureMostPopulousCountriesData]:
+        """Get a list of all future data from the table.
+
+        These data are an estimate for the year 2050.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[FutureMostPopulousCountriesData._table_position])  # type: ignore
