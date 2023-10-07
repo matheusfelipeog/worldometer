@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class LargestCitiesData:
+    """Represents a data row from the respective table."""
     rank: int
     urban_area: str
     population_estimate: str
@@ -18,7 +19,21 @@ class LargestCitiesData:
 
 
 class LargestCities:
+    """Represents the data table of the largest cities in the world.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in the
+    `largest cities in the world <https://www.worldometers.info/population/largest-cities-in-the-world>`_.
+    """
     source_path = '/population/largest-cities-in-the-world'
     new_column_names = (
         'rank',
@@ -47,4 +62,9 @@ class LargestCities:
 
     @property
     def data(self) -> List[LargestCitiesData]:
+        """Get a list of all the data from the table.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data)
