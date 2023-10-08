@@ -1,6 +1,6 @@
 """
-population
-----------
+population package
+------------------
 
 The `population` package provides access to various data related
 to world populations, regions, and their countries. Additionally,

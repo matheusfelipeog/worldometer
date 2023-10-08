@@ -1,6 +1,6 @@
 """
-world
------
+world package
+-------------
 
 `world` is the main API of the `worldometer` package,
 where you can access various live counters and data

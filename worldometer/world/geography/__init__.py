@@ -1,6 +1,6 @@
 """
-geography
----------
+geography package
+-----------------
 
 The `geography` package provides access to various data related
 to geographic information about the world, regions, and their countries.
