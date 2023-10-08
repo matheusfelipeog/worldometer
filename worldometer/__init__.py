@@ -1,77 +1,43 @@
-# -*- coding: utf-8 -*-
-
 """
-worldometer module
-------------------
+worldometer package
+-------------------
 
-Get metrics from around the world in multiple categories.
+The `worldometer` package accesses various counters and live data available
+throughout the https://www.worldometers.info website and provides them
+through self-describing classes, methods and attributes.
 
 Examples
 --------
-You can use the simplified API to collect the data:
+Get the data from the live counters available on the homepage:
 
->>> import worldometer
+>>> from worldometer.world import WorldCounters
 
->>> worldometer.current_world_population()
-{'current_world_population': 7845085923}
+>>> wc = WorldCounters()
 
->>> worldometer.tweets_sent_today()
-{'tweets_sent_today': 4539558}
+>>> wc.world_population.current_population
+8065299074
 
->>> worldometer.get_metric_of(label='computers_produced_this_year')
-{'computers_produced_this_year': 27760858}
+>>> wc.government_and_economics.computers_produced_this_year
+180248430
 
-Or using Worldometer Class:
+>>> wc.society_and_media.internet_users_in_the_world_today
+5895566559
 
->>> from worldometer import Worldometer
->>> w = Worldometer()
+Reload data to get the latest:
 
->>> w.what_is_here()
-{'categories': 8, 'labels': 63, 'metrics': 63}
+>>> wc.reload_data()
+>>> wc.world_population.current_population
+8065300592
 
->>> w.categories()
-[   
-    'world_population',
-    'government_and_economics',
-    'society_and_media',
-    ...
-]
+Get help and view information about mapped sections:
 
->>> w.metrics_labels()
-[   
-    'current_world_population',
-    'births_this_year',
-    'births_today',
-    'deaths_this_year',
-    'deaths_today',
-    'net_population_growth_this_year',
-    ...
-]
+>>> help(wc)
 
->>> w.metrics()
-[   
-    7845087963,
-    15741371,
-    5676,
-    6608605,
-    2383,
-    9132766,
-    ...
-]
-
->>> w.metrics_with_labels()
-{   
-    'abortions_this_year': 4785492,
-    'bicycles_produced_this_year': 17070566,
-    'births_this_year': 15741371,
-    'births_today': 5676,
-    'blog_posts_written_today': 110171,
-    'cars_produced_this_year': 8999185,
-    'cellular_phones_sold_today': 98846,
-    ...: ...
-}
+Notes
+-----
+Check https://www.worldometers.info/about for more information about
+the data source, how live counters work, and more related information.
 """
-
 
 __all__ = [
     'core',
