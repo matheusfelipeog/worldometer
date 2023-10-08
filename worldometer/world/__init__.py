@@ -1,3 +1,13 @@
+"""
+world
+-----
+
+`world` is the main API of the `worldometer` package,
+where you can access various live counters and data
+available on the https://www.worldometers.info website
+through self-descriptive classes, methods, and attributes.
+"""
+
 __all__ = [
     'geography',
     'population',
