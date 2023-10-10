@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CountriesByPopulationData:
+    """Represents a data row from the respective table."""
     idx: int
     country: str
     population: int
@@ -24,7 +25,21 @@ class CountriesByPopulationData:
 
 
 class CountriesByPopulation:
+    """Represents the data table of countries in the world by population.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in
+    `Countries in the world by population <https://www.worldometers.info/world-population/population-by-country>`_.
+    """
     source_path = '/world-population/population-by-country'
     new_column_names = (
         'idx',
@@ -58,4 +73,9 @@ class CountriesByPopulation:
 
     @property
     def data(self) -> List[CountriesByPopulationData]:
+        """Get a list of all the data from the table.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data)

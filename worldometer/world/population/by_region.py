@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentWorldPopulationByRegionData:
+    """Represents a data row from the respective table."""
     idx: int
     region: str
     population: int
@@ -25,6 +26,7 @@ class CurrentWorldPopulationByRegionData:
 
 @dataclass
 class PastWorldPopulationByRegionData:
+    """Represents a data row from the respective table."""
     idx: int
     region: str
     population: int
@@ -35,6 +37,7 @@ class PastWorldPopulationByRegionData:
 
 @dataclass
 class FutureWorldPopulationByRegionData:
+    """Represents a data row from the respective table."""
     idx: int
     region: str
     population: int
@@ -44,7 +47,21 @@ class FutureWorldPopulationByRegionData:
 
 
 class WorldPopulationByRegion:
+    """Represents the data table of regions in the world by population.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in
+    `Regions in the world by population <https://www.worldometers.info/world-population/population-by-region>`_.
+    """
     source_path = '/world-population/population-by-region'
     new_column_names = (
         (
@@ -108,10 +125,31 @@ class WorldPopulationByRegion:
         )
 
     def current(self) -> List[CurrentWorldPopulationByRegionData]:
+        """Get a list of all the current data from the table.
+
+        These data are related to the current year.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[CurrentWorldPopulationByRegionData._table_position])  # type: ignore
 
     def past(self) -> List[PastWorldPopulationByRegionData]:
+        """Get a list of all historical data from the table.
+
+        These data pertain to the year 1950.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[PastWorldPopulationByRegionData._table_position])  # type: ignore
 
     def future(self) -> List[FutureWorldPopulationByRegionData]:
+        """Get a list of all future data from the table.
+
+        These data are an estimate for the year 2050.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data[FutureWorldPopulationByRegionData._table_position])  # type: ignore

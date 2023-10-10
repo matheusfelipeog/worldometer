@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class WorldPopulationByYearData:
+    """Represents a data row from the respective table."""
     year: int
     world_population: int
     yearly_change: str
@@ -17,7 +18,21 @@ class WorldPopulationByYearData:
 
 
 class WorldPopulationByYear:
+    """Represents the data table of the world population by year.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in the
+    `world population by year <https://www.worldometers.info/world-population/world-population-by-year>`_.
+    """
     source_path = '/world-population/world-population-by-year'
     new_column_names = (
         'year',
@@ -44,4 +59,9 @@ class WorldPopulationByYear:
 
     @property
     def data(self) -> List[WorldPopulationByYearData]:
+        """Get a list of all the data from the table.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data)

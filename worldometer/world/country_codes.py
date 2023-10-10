@@ -7,6 +7,7 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CountryCodesData:
+    """Represents a data row from the respective table."""
     country: str
     calling_code: str
     three_letter_iso: str
@@ -17,7 +18,21 @@ class CountryCodesData:
 
 
 class CountryCodes:
+    """Represents the data table of some codes used by each country.
 
+    Attributes
+    ----------
+    source_path : str
+        The data source path.
+    new_column_names : tuple
+        The new column names that will be used to replace those
+        of the original table.
+
+    Notes
+    -----
+    Check the source table in
+    `Worldometers Country Codes <https://www.worldometers.info/country-codes/>`_.
+    """
     source_path = '/country-codes'
     new_column_names = (
         'country',
@@ -44,4 +59,9 @@ class CountryCodes:
 
     @property
     def data(self) -> List[CountryCodesData]:
+        """Get a list of all the data from the table.
+
+        Each index in the list contains an object representing
+        a data row of the table.
+        """
         return deepcopy(self._data)
