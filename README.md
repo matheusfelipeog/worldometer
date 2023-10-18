@@ -84,7 +84,7 @@ $ pip install worldometer
 ## Demo
 
 > [!NOTE]
-> The first time you run any function/method or class, it will download Chromium to  `~/.local/share/pyppeteer` directory. It only happens once. After, it will only open the chromium to render the contents of worldometers.info.
+> *The first time you run any function/method or class, it will download Chromium to  `~/.local/share/pyppeteer` directory. It only happens once. After, it will only open the chromium to render the contents of worldometers.info.*
 
 Get the data from the live counters available on the [homepage](https://www.worldometers.info/):
 
