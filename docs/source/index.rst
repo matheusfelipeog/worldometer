@@ -3,8 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Worldometer: Scraping & API
-===========================
+.. this title is hidden with css
+
+Worldometer
+===========
+
+.. image:: https://raw.githubusercontent.com/matheusfelipeog/worldometer/master/.github/assets/images/worldometer.png
+    :alt: Worldometer package logo
+    :width: 800px
+    :align: center
+    
 
 .. image:: https://img.shields.io/pypi/status/worldometer
     :alt: PyPI - Status
