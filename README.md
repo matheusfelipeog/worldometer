@@ -1,7 +1,10 @@
-<h1 align="center">
-    <img src="https://raw.githubusercontent.com/matheusfelipeog/worldometer/master/.github/assets/images/worldometer.png" alt="Logo Worldometer - Scraping & API" width="550px" />
-</h1>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/matheusfelipeog/worldometer/docs/upd-docs/.github/assets/images/worldometer.png" alt="Logo Worldometer - Scraping & API" width="550px" />
+    <br />
+    <em>Get live, population, geography, projected, and historical data from around the world.</em>
+</p>
 
+---
 
 <p align="center">
     <sup>Metadata</sup>
