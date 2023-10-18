@@ -12,11 +12,11 @@
     <a href="https://pypi.org/project/worldometer/">
         <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/worldometer" />
     </a>
-    <a href="https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/worldometer" alt="License MIT" />
-    </a>
     <a href="https://pepy.tech/project/worldometer">
         <img alt="Total Downloads" src="https://pepy.tech/badge/worldometer" />
+    </a>
+    <a href="https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/matheusfelipeog/worldometer" alt="License MIT" />
     </a>
 </p>
 
