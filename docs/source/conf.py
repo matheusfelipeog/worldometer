@@ -197,7 +197,6 @@ html_sidebars = {
     ],
     '**': [
         'about.html',
-        'localtoc.html',
         'navigation.html',
         'relations.html',
         'sourcelink.html',
