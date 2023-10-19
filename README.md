@@ -68,7 +68,7 @@ $ pip install worldometer
 
 ## Documentation
 
-See the documentation for more information on the worldometer package and its API at: [worldometer.readthedocs.io](https://worldometer.readthedocs.io/)
+See the docs for more information and its API at: [worldometer.readthedocs.io](https://worldometer.readthedocs.io/)
 
 
 ## Demo
