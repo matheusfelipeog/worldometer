@@ -107,8 +107,6 @@ Get help and view information about mapped sections:
 >>> help(wc)
 ```
 
-See the documentation at [worldometer.readthedocs.io](https://worldometer.readthedocs.io/)
-
 
 ## worldometers.info
 
