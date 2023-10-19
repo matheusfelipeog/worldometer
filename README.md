@@ -35,10 +35,11 @@
 ## Index
 
 - [About](#about)
-   - [worldometers.info](#worldometersinfo)
-   - [Sources](#sources)
 - [Install](#install)
+- [Documentation](#documentation)
 - [Demo](#demo)
+- [worldometers.info](#worldometersinfo)
+- [Sources](#data-sources)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -55,26 +56,6 @@ Access data on:
 - Projections 🔮
 - Historical 📜
 
-### worldometers.info
-
-> Worldometer is run by an international team of developers, researchers, and volunteers with the goal of making world statistics available in a thought-provoking and time relevant format to a wide audience around the world. It is published by a small and independent digital media company based in the United States. We have no political, governmental, or corporate affiliation. Furthermore, we have no investors, donors, grants, or backers of any type. We are completely independent and self-financed through automated programmatic advertising sold in real time on multiple ad exchanges.
-
-<p align="right">
-    <sup><a href="https://www.worldometers.info/about/">worldometers.info/about</a></sup>
-</p>
-
-### Sources
-
-> **[adapted]:** worldometers.info collects its statistics and data from the most reputable national and international organizations, including the United Nations, the World Health Organization, the Food and Agriculture Organization, OECD and others.
->
-> Each Worldometer counter has its specific set of sources, which are listed on its dedicated page (accessible by clicking on the counter text link, when available).
->
-> Data, estimates, and projections displayed on worldometers.info counters are for the most part provided by organizations included in the following list of United Nations Statistics Division's partners.
-
-<p align="right">
-    <sup><a href="https://www.worldometers.info/sources/">worldometers.info/sources</a></sup>
-</p>
-
 
 ## Install
 
@@ -83,6 +64,12 @@ Use `pip` to install the worldometer package:
 ```bash
 $ pip install worldometer
 ```
+
+
+## Documentation
+
+See the documentation for more information on the worldometer package and its API at: [worldometer.readthedocs.io](https://worldometer.readthedocs.io/)
+
 
 ## Demo
 
@@ -121,6 +108,28 @@ Get help and view information about mapped sections:
 ```
 
 See the documentation at [worldometer.readthedocs.io](https://worldometer.readthedocs.io/)
+
+
+## worldometers.info
+
+> Worldometer is run by an international team of developers, researchers, and volunteers with the goal of making world statistics available in a thought-provoking and time relevant format to a wide audience around the world. It is published by a small and independent digital media company based in the United States. We have no political, governmental, or corporate affiliation. Furthermore, we have no investors, donors, grants, or backers of any type. We are completely independent and self-financed through automated programmatic advertising sold in real time on multiple ad exchanges.
+
+<p align="right">
+    <sup><a href="https://www.worldometers.info/about/">worldometers.info/about</a></sup>
+</p>
+
+
+## Data Sources
+
+> **[adapted]:** worldometers.info collects its statistics and data from the most reputable national and international organizations, including the United Nations, the World Health Organization, the Food and Agriculture Organization, OECD and others.
+>
+> Each Worldometer counter has its specific set of sources, which are listed on its dedicated page (accessible by clicking on the counter text link, when available).
+>
+> Data, estimates, and projections displayed on worldometers.info counters are for the most part provided by organizations included in the following list of United Nations Statistics Division's partners.
+
+<p align="right">
+    <sup><a href="https://www.worldometers.info/sources/">worldometers.info/sources</a></sup>
+</p>
 
 
 ## Contributions
