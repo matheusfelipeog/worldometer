@@ -1,7 +1,7 @@
 # test documentation build configuration file, created by
 # sphinx-quickstart on Sun Jun 26 00:00:43 2016.
 #
-# This file is executed through importlib.import_module with 
+# This file is executed through importlib.import_module with
 # the current directory set to its containing dir.
 #
 # Note that not all possible configuration values are present in this
@@ -159,7 +159,7 @@ html_theme_options = {
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = './path/to/favicon'
+html_favicon = './_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -223,15 +223,15 @@ html_sidebars = {
 
 # If true, links to the reST sources are added to the pages.
 #
-# html_show_sourcelink = True
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
-# html_show_sphinx = True
+html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
-# html_show_copyright = True
+html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -247,7 +247,7 @@ html_sidebars = {
 #   'da', 'de', 'en', 'es', 'fi', 'fr', 'hu', 'it', 'ja'
 #   'nl', 'no', 'pt', 'ro', 'ru', 'sv', 'tr', 'zh'
 #
-# html_search_language = 'en'
+html_search_language = 'en'
 
 # A dictionary with options for the search language support, empty by default.
 # 'ja' uses this config value.
