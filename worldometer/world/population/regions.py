@@ -7,7 +7,13 @@ from worldometer.scraper import get_data_tables, get_rts_counters_object
 
 @dataclass
 class SubregionData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    area: int
+    population: str
+    """
     area: int
     population: str
 
@@ -16,7 +22,24 @@ class SubregionData:
 
 @dataclass
 class HistoricalData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    year: int
+    population: int
+    yearly_change_percent: str
+    yearly_change: int
+    migrants: int
+    median_age: float
+    fertility_rate: float
+    density: int
+    urban_population_percent: str
+    urban_population: int
+    world_share: str
+    world_population: int
+    rank: int
+    """
     year: int
     population: int
     yearly_change_percent: str
@@ -36,7 +59,24 @@ class HistoricalData:
 
 @dataclass
 class ForecastData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    year: int
+    population: int
+    yearly_change_percent: str
+    yearly_change: int
+    migrants: int
+    median_age: float
+    fertility_rate: float
+    density: int
+    urban_population_percent: str
+    urban_population: int
+    world_share: str
+    world_population: int
+    rank: int
+    """
     year: int
     population: int
     yearly_change_percent: str

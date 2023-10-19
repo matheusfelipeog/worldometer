@@ -7,7 +7,17 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class LargestCitiesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    rank: int
+    urban_area: str
+    population_estimate: str
+    country: str
+    land_area: int
+    density: int
+    """
     rank: int
     urban_area: str
     population_estimate: str

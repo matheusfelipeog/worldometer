@@ -7,7 +7,16 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class WorldCountriesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    world_share: str
+    land_area: int
+    """
     idx: int
     country: str
     population: int
@@ -19,7 +28,15 @@ class WorldCountriesData:
 
 @dataclass
 class CountryData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    subregion: str
+    """
     idx: int
     country: str
     population: int
@@ -30,7 +47,15 @@ class CountryData:
 
 @dataclass
 class DependencyData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    territory: str
+    population: int
+    dependency_of: str
+    """
     idx: int
     territory: str
     population: int
