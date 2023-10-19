@@ -1,6 +1,9 @@
 population package
 ==================
 
+.. contents:: Index
+    :depth: 2
+
 The population package provides access to various data related to world populations, regions, and their countries. Additionally, it includes historical data ranging from 1950 to the present day and future projections extending to 2050.
 
 To understand the significance of each of these data sets, their sources, and any other related information, please visit the official page at https://www.worldometers.info/population
