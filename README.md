@@ -39,7 +39,7 @@
 - [Documentation](#documentation)
 - [Demo](#demo)
 - [worldometers.info](#worldometersinfo)
-- [Sources](#data-sources)
+- [Data Sources](#data-sources)
 - [Contributions](#contributions)
 - [License](#license)
 
