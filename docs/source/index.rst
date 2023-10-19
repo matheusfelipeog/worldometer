@@ -70,9 +70,9 @@ The worldometer package is divided into several specific sub-packages for each d
     :maxdepth: 2
 
     worldometer <worldometer/index>
-    worldometer.world <worldometer/world>
-    worldometer.world.population <worldometer/population>
-    worldometer.world.geography <worldometer/geography>
+    world <worldometer/world>
+    population <worldometer/population>
+    geography <worldometer/geography>
 
 
 Demo
