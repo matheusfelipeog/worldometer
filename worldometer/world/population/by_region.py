@@ -7,7 +7,23 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentWorldPopulationByRegionData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    region: str
+    population: int
+    yearly_change: str
+    net_change: int
+    density: int
+    area: int
+    migrants: int
+    fertility_rate: float
+    median_age: int
+    urban_population: str
+    world_share: str
+    """
     idx: int
     region: str
     population: int
@@ -26,7 +42,15 @@ class CurrentWorldPopulationByRegionData:
 
 @dataclass
 class PastWorldPopulationByRegionData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    region: str
+    population: int
+    world_share: str
+    """
     idx: int
     region: str
     population: int
@@ -37,7 +61,15 @@ class PastWorldPopulationByRegionData:
 
 @dataclass
 class FutureWorldPopulationByRegionData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    region: str
+    population: int
+    world_share: str
+    """
     idx: int
     region: str
     population: int

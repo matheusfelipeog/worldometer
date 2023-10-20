@@ -7,7 +7,16 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CountryCodesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    country: str
+    calling_code: str
+    three_letter_iso: str
+    two_letter_iso: str
+    three_digit_iso_numeric: str
+    """
     country: str
     calling_code: str
     three_letter_iso: str

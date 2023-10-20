@@ -7,7 +7,16 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CurrentMostPopulousCountriesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    yearly_change: str
+    world_share: str
+    """
     idx: int
     country: str
     population: int
@@ -19,7 +28,16 @@ class CurrentMostPopulousCountriesData:
 
 @dataclass
 class PastMostPopulousCountriesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    world_share: str
+    rank: str
+    """
     idx: int
     country: str
     population: int
@@ -31,7 +49,16 @@ class PastMostPopulousCountriesData:
 
 @dataclass
 class FutureMostPopulousCountriesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    world_share: str
+    rank: str
+    """
     idx: int
     country: str
     population: int

@@ -7,7 +7,16 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class WorldPopulationByYearData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    year: int
+    world_population: int
+    yearly_change: str
+    net_change: float
+    density: float
+    """
     year: int
     world_population: int
     yearly_change: str

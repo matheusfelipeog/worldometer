@@ -7,7 +7,23 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class CountriesByPopulationData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    population: int
+    yearly_change: str
+    net_change: int
+    density: int
+    land_area: int
+    migrants: int
+    fertility_rate: float
+    median_age: float
+    urban_population: str
+    world_share: str
+    """
     idx: int
     country: str
     population: int

@@ -69,7 +69,18 @@ class WorldCounters:
 
 @dataclass
 class WorldPopulation:
-    """Counters related to world population data."""
+    """Counters related to world population data.
+
+    Attributes
+    ----------
+    current_population : Union[int, float, None]
+    births_today : Union[int, float, None]
+    births_this_year : Union[int, float, None]
+    deaths_today : Union[int, float, None]
+    deaths_this_year : Union[int, float, None]
+    net_population_growth_today : Union[int, float, None]
+    net_population_growth_this_year : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -84,7 +95,17 @@ class WorldPopulation:
 
 @dataclass
 class GovernmentAndEconomics:
-    """Counters related to government and economic data."""
+    """Counters related to government and economic data.
+
+    Attributes
+    ----------
+    public_healthcare_expenditure_today : Union[int, float, None]
+    public_education_expenditure_today : Union[int, float, None]
+    public_military_expenditure_today : Union[int, float, None]
+    cars_produced_this_year : Union[int, float, None]
+    bicycles_produced_this_year : Union[int, float, None]
+    computers_produced_this_year : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -98,7 +119,21 @@ class GovernmentAndEconomics:
 
 @dataclass
 class SocietyAndMedia:
-    """Counters related to society and media data."""
+    """Counters related to society and media data.
+
+    Attributes
+    ----------
+    new_book_titles_published_this_year : Union[int, float, None]
+    newspapers_circulated_today : Union[int, float, None]
+    tv_sets_sold_worldwide_today : Union[int, float, None]
+    cellular_phones_sold_today : Union[int, float, None]
+    money_spent_on_videogames_today : Union[int, float, None]
+    internet_users_in_the_world_today : Union[int, float, None]
+    emails_sent_today : Union[int, float, None]
+    blog_posts_written_today : Union[int, float, None]
+    tweets_sent_today : Union[int, float, None]
+    google_searches_today : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -116,7 +151,16 @@ class SocietyAndMedia:
 
 @dataclass
 class Environment:
-    """Counters related to environmental data."""
+    """Counters related to environmental data.
+
+    Attributes
+    ----------
+    forest_loss_this_year : Union[int, float, None]
+    land_lost_to_soil_erosion_this_year : Union[int, float, None]
+    co2_emissions_this_year : Union[int, float, None]
+    desertification_this_year : Union[int, float, None]
+    toxic_chemicals_released_in_the_environment_this_year : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -129,7 +173,17 @@ class Environment:
 
 @dataclass
 class Food:
-    """Counters related to food data."""
+    """Counters related to food data.
+
+    Attributes
+    ----------
+    undernourished_people_in_the_world : Union[int, float, None]
+    overweight_people_in_the_world : Union[int, float, None]
+    obese_people_in_the_world : Union[int, float, None]
+    people_who_died_of_hunger_today : Union[int, float, None]
+    money_spent_for_obesity_related_diseases_in_the_usa_today : Union[int, float, None]
+    money_spent_on_weight_loss_programs_in_the_usa_today : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -143,7 +197,14 @@ class Food:
 
 @dataclass
 class Water:
-    """Counters related to water data."""
+    """Counters related to water data.
+
+    Attributes
+    ----------
+    water_used_this_year : Union[int, float, None]
+    deaths_caused_by_water_related_diseases_this_year : Union[int, float, None]
+    people_with_no_access_to_a_safe_drinking_water_source : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -154,7 +215,22 @@ class Water:
 
 @dataclass
 class Energy:
-    """Counters related to energy data."""
+    """Counters related to energy data.
+
+    Attributes
+    ----------
+    energy_used_today : Union[int, float, None]
+    non_renewable_sources : Union[int, float, None]
+    renewable_sources : Union[int, float, None]
+    solar_energy_striking_earth_today : Union[int, float, None]
+    oil_pumped_today : Union[int, float, None]
+    oil_left : Union[int, float, None]
+    days_to_the_end_of_oil : Union[int, float, None]
+    natural_gas_left : Union[int, float, None]
+    days_to_the_end_of_natural_gas : Union[int, float, None]
+    coal_left : Union[int, float, None]
+    days_to_the_end_of_coal : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:
@@ -173,7 +249,26 @@ class Energy:
 
 @dataclass
 class Health:
-    """Counters related to health data."""
+    """Counters related to health data.
+
+    Attributes
+    ----------
+    communicable_disease_deaths_this_year : Union[int, float, None]
+    seasonal_flu_deaths_this_year : Union[int, float, None]
+    deaths_of_children_under_5_this_year : Union[int, float, None]
+    abortions_this_year : Union[int, float, None]
+    deaths_of_mothers_during_birth_this_year : Union[int, float, None]
+    hiv_aids_infected_people : Union[int, float, None]
+    deaths_caused_by_hiv_aids_this_year : Union[int, float, None]
+    deaths_caused_by_cancer_this_year : Union[int, float, None]
+    deaths_caused_by_malaria_this_year : Union[int, float, None]
+    cigarettes_smoked_today : Union[int, float, None]
+    deaths_caused_by_smoking_this_year : Union[int, float, None]
+    deaths_caused_by_alcohol_this_year : Union[int, float, None]
+    suicides_this_year : Union[int, float, None]
+    money_spent_on_illegal_drugs_this_year : Union[int, float, None]
+    road_traffic_accident_fatalities_this_year : Union[int, float, None]
+    """
     _data: Dict[str, Union[int, float, None]] = field(repr=False)
 
     def __post_init__(self) -> None:

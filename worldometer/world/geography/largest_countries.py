@@ -7,7 +7,18 @@ from worldometer.scraper import get_data_tables
 
 @dataclass
 class LargestCountriesData:
-    """Represents a data row from the respective table."""
+    """Represents a data row from the respective table.
+
+    Attributes
+    ----------
+    idx: int
+    country: str
+    total_area_km2: int
+    total_area_mi2: int
+    land_area_km2: int
+    land_area_mi2: int
+    percentage_of_world_landmass: str
+    """
     idx: int
     country: str
     total_area_km2: int

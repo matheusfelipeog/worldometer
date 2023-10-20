@@ -3,190 +3,128 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Worldometer: Scraping & API
-===========================
+.. this title is hidden with css
 
-.. image:: https://img.shields.io/pypi/status/worldometer
-    :alt: PyPI - Status
-    :target: https://pypi.org/project/worldometer/
+Worldometer
+===========
+
+.. image:: https://raw.githubusercontent.com/matheusfelipeog/worldometer/master/.github/assets/images/worldometer.png
+    :alt: Worldometer package logo
+    :width: 800px
+    :align: center
+    
+*Get live, population, geography, projected, and historical data from around the world.*
 
 .. image:: https://img.shields.io/pypi/v/worldometer
-    :alt: PyPI
+    :alt: PyPI - Version
     :target: https://pypi.org/project/worldometer/
 
-.. image:: https://img.shields.io/github/v/release/matheusfelipeog/worldometer
-    :alt: GitHub release (latest by date)
-    :target: https://github.com/matheusfelipeog/worldometer/releases
-
-.. image:: https://readthedocs.org/projects/worldometer/badge/?version=latest
-    :alt: Documentation Status
-    :target: https://worldometer.readthedocs.io/en/latest/?badge=latest
+.. image:: https://pepy.tech/badge/worldometer
+    :alt: Total Downloads
+    :target: https://pepy.tech/project/worldometer
 
 .. image:: https://img.shields.io/github/license/matheusfelipeog/worldometer
     :alt: License MIT
     :target: https://github.com/matheusfelipeog/worldometer/blob/master/LICENSE
 
-Get current metrics in the world with the python **worldometer** module
+.. image:: https://img.shields.io/pypi/status/worldometer
+    :alt: PyPI - Status
+    :target: https://pypi.org/project/worldometer/
+
+.. image:: https://readthedocs.org/projects/worldometer/badge/?version=latest
+    :alt: Documentation Status
+    :target: https://worldometer.readthedocs.io/en/latest/?badge=latest
+
 
 -----------------------------------------------------------------------
-
-
-Index
------
-
-- `About <#id1>`_
-
-  - `worldometers <#id2>`_
-  - `How it works? <#id3>`_
-
-- `Install <#id4>`_
-- `Demo <#id5>`_
-- `Contributions <#id6>`_
-- `License <#id7>`_
-- `Indices and tables <#id8>`_
-
-**Worldometer Docs:**
-
-.. toctree::
-    :maxdepth: 1
-
-    worldometer_core
-    worldometer_api
 
 
 About
 -----
 
-`Worldometer <https://github.com/matheusfelipeog/worldometer>`_ is a python module that collects data from `worldometers.info <https://www.worldometers.info/>`_ and provides a simple and self-explanatory interface for using the data.
+The `worldometer <https://github.com/matheusfelipeog/worldometer>`_ package accesses various counters and live data available throughout the `worldometers.info <https://www.worldometers.info/>`_ website and provides them through simple and self-describing classes, methods and attributes.
 
-worldometers.info
-^^^^^^^^^^^^^^^^^
+Access data on:
 
-    "Worldometer is run by an international team of developers, researchers, and volunteers with the goal of making world statistics available in a thought-provoking and time relevant format to a wide audience around the world. It is published by a small and independent digital media company based in the United States. We have no political, governmental, or corporate affiliation. Furthermore, we have no investors, donors, grants, or backers of any type. We are completely independent and self-financed through automated programmatic advertising sold in real time on multiple ad exchanges."
-
-More info: `worldometers.info/about <https://www.worldometers.info/about/>`_
-
-How it works?
-^^^^^^^^^^^^^
-
-    **[Adapted]:** "For the data, is elaborate instead a real-time estimate through a proprietary algorithm which processes the latest data and projections provided by the most reputable organizations and statistical offices in the world."
-
-More info about data source: `worldometers.info/sources <https://www.worldometers.info/sources/>`_
+- The world 🌍
+- Population 👥
+- Geography 🗺️
+- Projections 🔮
+- Historical 📜
 
 
 Install
 -------
 
-First, create a directory and enter it::
-
-    $ mkdir my_project && cd my_project
-
-Create a virtual environment to avoid breaking dependence on other projects.
-
-This project uses `pipenv <https://pipenv.pypa.io/en/latest/>`_, it already does it alone 😆::
-
-    $ pipenv install worldometer
-
-
-But you can use ``virtualenv`` + ``pip`` if you prefer::
-
-    $ virtualenv venv && source venv/Scripts/activate
-
-
-Now install::
+Use ``pip`` to install the worldometer package::
 
     $ pip install worldometer
+
+
+API Reference
+-------------
+
+The worldometer package is divided into several specific sub-packages for each dataset. So if you are looking for information on a specific package, class, or method, this part of the documentation is for you.
+
+.. toctree::
+    :maxdepth: 2
+
+    worldometer <api/worldometer>
+    world <api/world>
+    population <api/population>
+    geography <api/geography>
 
 
 Demo
 ----
 
 .. note:: 
-    The first time you run any function/method or class, it will download Chromium to its home directory (for example, ``~/.pyppeteer/``). It only happens once.
+    The first time you run any function/method or class, it will download Chromium to ``~/.local/share/pyppeteer`` directory. It only happens once. After, it will only open the chromium to render the contents of worldometers.info.
 
-    After, it will only open the chromium to render the contents of worldometers.
+Get the data from the live counters available on the `homepage <https://www.worldometers.info/>`_::
 
-**Simple API usage:**
+    >>> from worldometer.world import WorldCounters
 
-*See all function in:* `worldometer.api <worldometer_api.html>`_
+    >>> wc = WorldCounters()
 
-Get metrics using simplified functions:
+    >>> wc.world_population.current_population
+    8065299074
 
-    >>> import worldometer
+    >>> wc.government_and_economics.computers_produced_this_year
+    180248430
 
-    >>> worldometer.current_world_population()
-    {'current_world_population': 7845085923}
+    >>> wc.society_and_media.internet_users_in_the_world_today
+    5895566559
 
-    >>> worldometer.tweets_sent_today()
-    {'tweets_sent_today': 4539558}
+Reload data to get the latest::
 
-Get metrics by passing the corresponding label:
+    >>> wc.reload_data()
+    >>> wc.world_population.current_population
+    8065300592
 
-    >>> worldometer.get_metric_of(label='computers_produced_this_year')
-    {'computers_produced_this_year': 27760858}
+Get help and view information about mapped sections::
+
+    >>> help(wc)
 
 
-**Or complete use with Worldometer Class:**
+worldometers.info
+-----------------
 
-*See all methods in:* `worldometer.core <worldometer_core.html>`_
+    "Worldometer is run by an international team of developers, researchers, and volunteers with the goal of making world statistics available in a thought-provoking and time relevant format to a wide audience around the world. It is published by a small and independent digital media company based in the United States. We have no political, governmental, or corporate affiliation. Furthermore, we have no investors, donors, grants, or backers of any type. We are completely independent and self-financed through automated programmatic advertising sold in real time on multiple ad exchanges."
 
->>> from worldometer import Worldometer
->>> w = Worldometer()
+More info: `worldometers.info/about <https://www.worldometers.info/about/>`_
 
-Get the number of categories, labels and metrics in ``w`` object:
 
-    >>> w.what_is_here()
-    {'categories': 8, 'labels': 63, 'metrics': 63}
+Data Sources
+------------
 
-Get all categories used:
+    **[adapted]:** "worldometers.info collects its statistics and data from the most reputable national and international organizations, including the United Nations, the World Health Organization, the Food and Agriculture Organization, OECD and others.
 
-    >>> w.categories()
-    [   
-        'world_population',
-        'government_and_economics',
-        'society_and_media',
-        ...  # compressed
-    ]
+    Each Worldometer counter has its specific set of sources, which are listed on its dedicated page (accessible by clicking on the counter text link, when available).
 
-Get all labels used:
+    Data, estimates, and projections displayed on worldometers.info counters are for the most part provided by organizations included in the following list of United Nations Statistics Division's partners."
 
-    >>> w.metrics_labels()
-    [   
-        'current_world_population',
-        'births_this_year',
-        'births_today',
-        'deaths_this_year',
-        'deaths_today',
-        'net_population_growth_this_year',
-        ...  # compressed
-    ]
-
-Get all metrics used:
-
-    >>> w.metrics()
-    [   
-        7845087963,
-        15741371,
-        5676,
-        6608605,
-        2383,
-        9132766,
-        ...  # compressed
-    ]
-
-Get all metrics with labels in dict format:
-
->>> w.metrics_with_labels()
-{   
-    'abortions_this_year': 4785492,
-    'bicycles_produced_this_year': 17070566,
-    'births_this_year': 15741371,
-    'births_today': 5676,
-    'blog_posts_written_today': 110171,
-    'cars_produced_this_year': 8999185,
-    'cellular_phones_sold_today': 98846,
-    ...: ...  # compressed
-}
+More info about data source: `worldometers.info/sources <https://www.worldometers.info/sources/>`_
 
 
 Contributions

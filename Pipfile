@@ -9,6 +9,6 @@ pandas = "*"
 html5lib = "*"
 
 [dev-packages]
-pylint = "2.6.0"
-sphinx = "3.5.0"
+pylint = "*"
+sphinx = "*"
 pytest = "*"
