@@ -69,10 +69,10 @@ The worldometer package is divided into several specific sub-packages for each d
 .. toctree::
     :maxdepth: 2
 
-    worldometer <worldometer/index>
-    world <worldometer/world>
-    population <worldometer/population>
-    geography <worldometer/geography>
+    worldometer <api/worldometer>
+    world <api/world>
+    population <api/population>
+    geography <api/geography>
 
 
 Demo
