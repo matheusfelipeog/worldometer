@@ -99,18 +99,14 @@ __all__ = [
     'road_traffic_accident_fatalities_this_year'
 ]
 
+from dataclasses import asdict
 
-from .core import Worldometer
-
-from .__about__ import __version__, __author__, __email__
-
-
-__w = Worldometer()
+from worldometer.world import WorldCounters
 
 
 def get_metric_of(label: str) -> dict:
     """Get metric of label specified.
-    
+
     Parameters
     ----------
     label
@@ -126,8 +122,18 @@ def get_metric_of(label: str) -> dict:
     >>> get_metric_of(label='current_world_population')
     {'current_world_population': 7845085923}
     """
+    wc = WorldCounters()
 
-    metrics = __w.metrics_with_labels()
+    metrics = {
+        **asdict(wc.world_population),
+        **asdict(wc.government_and_economics),
+        **asdict(wc.society_and_media),
+        **asdict(wc.environment),
+        **asdict(wc.food),
+        **asdict(wc.water),
+        **asdict(wc.energy),
+        **asdict(wc.health)
+    }
 
     if label not in metrics:
         raise Exception(f'This label "{label}" is invalid, please use a valid label.')
@@ -137,13 +143,11 @@ def get_metric_of(label: str) -> dict:
 
 def update_metrics() -> None:
     """Update metrics of worldometer."""
-    
-    __w.update_metrics()
 
 
 def current_world_population() -> dict:
     """Get number of current world population."""
-    return get_metric_of(label='current_world_population')
+    return get_metric_of(label='current_population')
 
 
 def births_this_year() -> dict:
@@ -333,7 +337,7 @@ def energy_used_today() -> dict:
 
 def non_renewable_sources() -> dict:
     """Get number of non renewable sources."""
-    return get_metric_of(label='non-renewable_sources')
+    return get_metric_of(label='non_renewable_sources')
 
 
 def renewable_sources() -> dict:
@@ -408,12 +412,12 @@ def deaths_of_mothers_during_birth_this_year() -> dict:
 
 def hiv_aids_infected_people() -> dict:
     """Get number of hiv aids infected people."""
-    return get_metric_of(label='hiv/aids_infected_people')
+    return get_metric_of(label='hiv_aids_infected_people')
 
 
 def deaths_caused_by_hiv_aids_this_year() -> dict:
     """Get number of deaths caused by hiv aids this year."""
-    return get_metric_of(label='deaths_caused_by_hiv/aids_this_year')
+    return get_metric_of(label='deaths_caused_by_hiv_aids_this_year')
 
 
 def deaths_caused_by_cancer_this_year() -> dict:
