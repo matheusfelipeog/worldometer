@@ -99,9 +99,11 @@ __all__ = [
     'road_traffic_accident_fatalities_this_year'
 ]
 
-from dataclasses import asdict
 
-from worldometer.world import WorldCounters
+from worldometer import Worldometer
+
+
+_cached_metrics = {}
 
 
 def get_metric_of(label: str) -> dict:
@@ -122,18 +124,12 @@ def get_metric_of(label: str) -> dict:
     >>> get_metric_of(label='current_world_population')
     {'current_world_population': 7845085923}
     """
-    wc = WorldCounters()
 
-    metrics = {
-        **asdict(wc.world_population),
-        **asdict(wc.government_and_economics),
-        **asdict(wc.society_and_media),
-        **asdict(wc.environment),
-        **asdict(wc.food),
-        **asdict(wc.water),
-        **asdict(wc.energy),
-        **asdict(wc.health)
-    }
+    if not _cached_metrics:
+        w = Worldometer()
+        _cached_metrics.update(w.metrics_with_labels())
+
+    metrics = _cached_metrics.copy()
 
     if label not in metrics:
         raise Exception(f'This label "{label}" is invalid, please use a valid label.')
@@ -143,6 +139,7 @@ def get_metric_of(label: str) -> dict:
 
 def update_metrics() -> None:
     """Update metrics of worldometer."""
+    _cached_metrics.clear()
 
 
 def current_world_population() -> dict:
