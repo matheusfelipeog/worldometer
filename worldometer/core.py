@@ -46,7 +46,7 @@ URL = 'https://www.worldometers.info/'
 
 _METRICS_LABELS = {
     'world_population': [
-        'current_world_population',
+        'current_population',
         'births_this_year',
         'births_today',
         'deaths_this_year',
@@ -96,7 +96,7 @@ _METRICS_LABELS = {
     ],
     'energy': [
         'energy_used_today',
-        'non-renewable_sources',
+        'non_renewable_sources',
         'renewable_sources',
         'solar_energy_striking_earth_today',
         'oil_pumped_today',
@@ -113,8 +113,8 @@ _METRICS_LABELS = {
         'deaths_of_children_under_5_this_year',
         'abortions_this_year',
         'deaths_of_mothers_during_birth_this_year',
-        'hiv/aids_infected_people',
-        'deaths_caused_by_hiv/aids_this_year',
+        'hiv_aids_infected_people',
+        'deaths_caused_by_hiv_aids_this_year',
         'deaths_caused_by_cancer_this_year',
         'deaths_caused_by_malaria_this_year',
         'cigarettes_smoked_today',
