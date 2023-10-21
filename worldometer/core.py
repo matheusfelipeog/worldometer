@@ -24,7 +24,7 @@ Get the number of categories, labels and metrics in w object:
 Get all metrics with labels in dict format:
 
 >>> w.metrics_with_labels()
-{   
+{
     'abortions_this_year': 4785492,
     'bicycles_produced_this_year': 17070566,
     'births_this_year': 15741371,
@@ -38,19 +38,11 @@ Get all metrics with labels in dict format:
 
 __all__ = ['Worldometer']
 
-from .__about__ import __version__, __author__, __email__
-
-import re
-
-from requests_html import HTML, HTMLSession
-
+from worldometer.world import WorldCounters
 
 # Constant variables, used in the Worldometer module.
 
 URL = 'https://www.worldometers.info/'
-
-_CSS_SELECTOR_OF_COUNTER_NUMBERS = '.counter-number'
-_CSS_SELECTOR_OF_COUNTER_ITEM = '.counter-item, .counter-item-double'
 
 _METRICS_LABELS = {
     'world_population': [
@@ -138,7 +130,7 @@ _METRICS_LABELS = {
 class Worldometer(object):
     """This is the core class of the worldometer module.
 
-    All functions/methods of the worldometer module use 
+    All functions/methods of the worldometer module use
     this class to build a Worldometer Object to access the collected data.
 
     Get more info about its attributes/methods using the ``help`` function:
@@ -161,33 +153,30 @@ class Worldometer(object):
     |      ----------
     |      timeout
     |         Seconds of wait for processing.
-    |   
+    |
     |   (...)
     """
 
     def __init__(self, timeout: int = 30):
         """Initializer of Worldometer class.
-        
+
         Parameters
         ----------
         timeout
            Seconds of wait for processing.
         """
-
         self.__r = None  # Stores the response with html code for later rendering
 
         self.__timeout = timeout
 
         self._metrics = self.collect_metrics()
-    
-    def __str__(self):
 
+    def __str__(self):
         c, l, m = self.what_is_here().values()
 
         return f'Worldometer has {c} categories, {l} labels and {m} metrics'
 
     def __repr__(self):
-
         c, l, m = self.what_is_here().values()
 
         return (
@@ -197,7 +186,7 @@ class Worldometer(object):
 
     def metrics(self) -> list:
         """Get all metrics of worldometer.
-        
+
         Returns
         -------
         list
@@ -208,7 +197,7 @@ class Worldometer(object):
         >>> from worldometer import Worldometer
         >>> w = Worldometer()
         >>> w.metrics()
-        [   
+        [
             7845087963,
             15741371,
             5676,
@@ -218,74 +207,42 @@ class Worldometer(object):
             ...
         ]
         """
-
         return self._metrics.copy()
 
-    def _get_html(self, url: str) -> str:
+    def _get_html(self, url: str) -> None:
         """Get the html code from the specified url and
         return its rendered content.
         """
 
-        session = HTMLSession()
-
-        try:
-            # Get html page and render dynamic content
-            self.__r = session.get(url, timeout=self.__timeout)
-            self.__r.html.render(timeout=self.__timeout)
-
-            return self.__r.html.raw_html
-
-        except Exception as err:
-            raise Exception(err)
-
     @staticmethod
-    def find_metrics_in_html(html_code: str) -> list:
+    def find_metrics_in_html(html_code: str) -> None:
         """Find worldometer metrics in html code.
-        
+
         Parameters
         ----------
         html_code
             Receive html code.
-        
+
         Returns
         -------
         list
             A list of not sanitized metrics of str type.
         """
 
-        html = HTML(html=html_code)
-
-        # Get only text of all requests_html.Element object
-        metrics = [metric.text for metric in html.find(_CSS_SELECTOR_OF_COUNTER_NUMBERS)]
-
-        return metrics
-
     @staticmethod
-    def sanitize_metrics(metric_list: list) -> list:
+    def sanitize_metrics(metric_list: list) -> None:
         """Sanitize all metrics in list.
-        
+
         Parameters
         ----------
         metric_list
             Receive list of metrics in str type.
-        
+
         Returns
         -------
         list
             A list of sanitized metrics of int type.
         """
-
-        sanitized_metrics = []
-
-        for metric in metric_list:
-            
-            # Get only the number and convert to int
-            found = re.search(r'[0-9,]+', metric).group()
-            number = int(found.replace(',', ''))
-
-            sanitized_metrics.append(number)
-        
-        return sanitized_metrics
 
     def collect_metrics(self) -> list:
         """Collects all metrics from the worldometer site.
@@ -295,30 +252,32 @@ class Worldometer(object):
         list
             A list of metrics of int type.
         """
+        wc = WorldCounters()
 
-        if self.__r is None:
-            html = self._get_html(url=URL)
-        else:
-            html = self.__r.html.raw_html
+        metrics = {
+            **wc.world_population.__dict__,
+            **wc.government_and_economics.__dict__,
+            **wc.society_and_media.__dict__,
+            **wc.environment.__dict__,
+            **wc.food.__dict__,
+            **wc.water.__dict__,
+            **wc.energy.__dict__,
+            **wc.health.__dict__
+        }
+        metrics.pop('_data')
 
-        metrics = self.find_metrics_in_html(html_code=html)
-        sanitized_metrics = self.sanitize_metrics(metric_list=metrics)
+        metrics_values = list(metrics.values())
 
-        return sanitized_metrics
+        return metrics_values
 
     def update_metrics(self) -> None:
         """Update metrics of worldometer."""
-
-        if self.__r is not None:
-            self.__r.html.render(timeout=self.__timeout)
-            self._metrics = self.collect_metrics()
-        else:
-            raise Exception('There are no metrics. Collect them to update.')
+        self._metrics = self.collect_metrics()
 
     @staticmethod
     def metrics_labels(with_categories=False) -> list:
         """Return metrics labels of worldometer.
-        
+
         Parameters
         ----------
         with_categories
@@ -328,7 +287,7 @@ class Worldometer(object):
         -------
         list
             A list of labels if ``with_categories`` parameter is False.
-            
+
             A dict of labels with categories if ``with_categories`` parameter is True.
 
         Example
@@ -336,7 +295,7 @@ class Worldometer(object):
         >>> from worldometer import Worldometer
         >>> w = Worldometer()
         >>> w.metrics_labels()
-        [   
+        [
             'current_world_population',
             'births_this_year',
             'births_today',
@@ -346,9 +305,8 @@ class Worldometer(object):
             ...
         ]
         """
-
         if with_categories:
-            return _METRICS_LABELS
+            return _METRICS_LABELS  # type: ignore
 
         only_metrics = []
         for metrics in _METRICS_LABELS.values():
@@ -359,7 +317,7 @@ class Worldometer(object):
     @staticmethod
     def categories() -> list:
         """Return categories of worldometer.
-        
+
         Returns
         -------
         list
@@ -370,19 +328,18 @@ class Worldometer(object):
         >>> from worldometer import Worldometer
         >>> w = Worldometer()
         >>> w.categories()
-        [   
+        [
             'world_population',
             'government_and_economics',
             'society_and_media',
             ...
         ]
         """
-
         return [category for category in _METRICS_LABELS.keys()]
 
     def metrics_with_labels(self, with_categories: bool = False) -> dict:
         """Return metrics with labels in key-value structure.
-        
+
         Parameters
         ----------
         with_categories
@@ -398,7 +355,7 @@ class Worldometer(object):
         >>> from worldometer import Worldometer
         >>> w = Worldometer()
         >>> w.metrics_with_labels()
-        {   
+        {
             'abortions_this_year': 4785492,
             'bicycles_produced_this_year': 17070566,
             'births_this_year': 15741371,
@@ -409,11 +366,10 @@ class Worldometer(object):
             ...: ...
         }
         """
-
         metrics = self.metrics()
 
         if with_categories:
-            
+
             m_with_l = {}  # Storage all structure of metrics with labels
             metrics_labels = self.metrics_labels(with_categories=True).copy()
 
@@ -424,29 +380,29 @@ class Worldometer(object):
 
                 for label in metrics_labels[category]:
 
-                    # Storage of a metric on the key label as the index 
+                    # Storage of a metric on the key label as the index
                     # increases +1 to iterate through the entire list of metrics
                     m_with_l[category][label] = metrics[idx]
                     idx += 1
-                
+
             return m_with_l
 
         else:
-        
+
             labels = self.metrics_labels().copy()
-            
+
             return dict(
                 zip(labels, metrics)
             )
 
     def what_is_here(self) -> dict:
         """Return what is here in object.
-        
+
         Returns
         -------
         dict
             Number of categories, labels and metrics.
-        
+
         Example
         -------
         >>> from worldometer import Worldometer
@@ -454,13 +410,8 @@ class Worldometer(object):
         >>> w.what_is_here()
         {'categories': 8, 'labels': 63, 'metrics': 63}
         """
-
-        c = len(self.categories())
-        l = len(self.metrics_labels())
-        m = len(self.metrics())
-
         return {
-            'categories': c,
-            'labels': l,
-            'metrics': m
+            'categories': len(self.categories()),
+            'labels': len(self.metrics_labels()),
+            'metrics': len(self.metrics())
         }
