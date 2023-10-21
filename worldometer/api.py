@@ -19,7 +19,7 @@ To use it, just enter the corresponding label:
 {'computers_produced_this_year': 27760858}
 
 There is also a simplified and self-explanatory API that provides
-functions corresponding to the labels. 
+functions corresponding to the labels.
 Autocomplete tools from the editors/IDE will help you use these
 functions without having to decorate all labels:
 
