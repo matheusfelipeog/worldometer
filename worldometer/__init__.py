@@ -108,6 +108,9 @@ __all__ = [
     'road_traffic_accident_fatalities_this_year'
 ]
 
+__version__ = '1.0.1'
+__author__ = 'Matheus Felipe'
+
 # TODO: The worldometer.core module is deprecated.
 # TODO: The old API (worldometer.api) is deprecated.
 # This will be removed in the future.

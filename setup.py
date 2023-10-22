@@ -1,38 +1,34 @@
-# -*- coding: utf-8 -*-
-
 import os
-from setuptools import setup, find_packages
 
-from worldometer.__about__ import __version__, __author__, __email__
+from setuptools import find_packages, setup
 
-
-NAME = 'worldometer'
-URL = 'https://github.com/matheusfelipeog/worldometer'
-DESCRIPTION = 'Worldometer Scraping & API - Get world metrics from worldometers.info'
+import worldometer
 
 
 here = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(here, 'README.md'), mode='r', encoding='utf-8') as f:
-    long_description = f.read()
+    long_description = '\n' + f.read()
 
 
 setup(
-    name=NAME,
-    version=__version__,
-    description=DESCRIPTION,
+    name='worldometer',
+    version=worldometer.__version__,
+    description='Get live, population, geography, projected, and historical data from around the world.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     license='MIT License',
-    author=__author__,
-    author_email=__email__,
-    url=URL,
+    author=worldometer.__author__,
+    author_email='matheusfelipeog@protonmail.com',
+    url='https://github.com/matheusfelipeog/worldometer',
     packages=find_packages(),
     install_requires=[
-        'requests-html'
+        'requests-html',
+        'pandas',
+        'html5lib'
     ],
     zip_safe=False,
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     project_urls={
         "Bug Tracker": "https://github.com/matheusfelipeog/worldometer/issues",
         "Documentation": "https://worldometer.readthedocs.io",
@@ -51,10 +47,10 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: Implementation :: CPython',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'
