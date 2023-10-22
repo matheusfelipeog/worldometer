@@ -38,6 +38,9 @@ Get all metrics with labels in dict format:
 
 __all__ = ['Worldometer']
 
+import warnings
+from functools import wraps
+
 from worldometer.world import WorldCounters
 
 # Constant variables, used in the Worldometer module.
@@ -127,6 +130,20 @@ _METRICS_LABELS = {
 }
 
 
+def _deprecated_api(func_or_class):
+    @wraps(func_or_class)
+    def decorated(*args, **kwargs):
+        warnings.warn(
+            f'{func_or_class.__name__}() is deprecated. Use WorldCounters() instead.'
+            ' It will be removed in a future release.',
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return func_or_class(*args, **kwargs)
+    return decorated
+
+
+@_deprecated_api
 class Worldometer(object):
     """This is the core class of the worldometer module.
 
