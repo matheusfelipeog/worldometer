@@ -281,7 +281,6 @@ class Worldometer(object):
             **wc.energy.__dict__,
             **wc.health.__dict__
         }
-        metrics.pop('_data')
 
         metrics_values = list(metrics.values())
 
