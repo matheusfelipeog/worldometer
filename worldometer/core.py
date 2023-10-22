@@ -40,6 +40,7 @@ __all__ = ['Worldometer']
 
 import warnings
 from functools import wraps
+from dataclasses import asdict
 
 from worldometer.world import WorldCounters
 
@@ -272,16 +273,15 @@ class Worldometer(object):
         wc = WorldCounters()
 
         metrics = {
-            **wc.world_population.__dict__,
-            **wc.government_and_economics.__dict__,
-            **wc.society_and_media.__dict__,
-            **wc.environment.__dict__,
-            **wc.food.__dict__,
-            **wc.water.__dict__,
-            **wc.energy.__dict__,
-            **wc.health.__dict__
+            **asdict(wc.world_population),
+            **asdict(wc.government_and_economics),
+            **asdict(wc.society_and_media),
+            **asdict(wc.environment),
+            **asdict(wc.food),
+            **asdict(wc.water),
+            **asdict(wc.energy),
+            **asdict(wc.health)
         }
-        metrics.pop('_data')
 
         metrics_values = list(metrics.values())
 
