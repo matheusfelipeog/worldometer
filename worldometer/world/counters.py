@@ -4,7 +4,8 @@ from typing import Dict, Union
 from worldometer.scraper import get_rts_counters_object
 
 
-CounterValuesType = Dict[str, Union[int, float, None]]
+CounterValueType = Union[int, float, None]
+CounterValuesType = Dict[str, CounterValueType]
 
 
 class WorldCounters:
@@ -85,6 +86,13 @@ class WorldPopulation:
     net_population_growth_this_year : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    current_population: CounterValueType = field(init=False)
+    births_today: CounterValueType = field(init=False)
+    births_this_year: CounterValueType = field(init=False)
+    deaths_today: CounterValueType = field(init=False)
+    deaths_this_year: CounterValueType = field(init=False)
+    net_population_growth_today: CounterValueType = field(init=False)
+    net_population_growth_this_year: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.current_population = _data.get('current_population')
@@ -110,6 +118,12 @@ class GovernmentAndEconomics:
     computers_produced_this_year : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    public_healthcare_expenditure_today: CounterValueType = field(init=False)
+    public_education_expenditure_today: CounterValueType = field(init=False)
+    public_military_expenditure_today: CounterValueType = field(init=False)
+    cars_produced_this_year: CounterValueType = field(init=False)
+    bicycles_produced_this_year: CounterValueType = field(init=False)
+    computers_produced_this_year: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.public_healthcare_expenditure_today = _data.get('gov_expenditures_health')
@@ -138,6 +152,16 @@ class SocietyAndMedia:
     google_searches_today : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    new_book_titles_published_this_year: CounterValueType = field(init=False)
+    newspapers_circulated_today: CounterValueType = field(init=False)
+    tv_sets_sold_worldwide_today: CounterValueType = field(init=False)
+    cellular_phones_sold_today: CounterValueType = field(init=False)
+    money_spent_on_videogames_today: CounterValueType = field(init=False)
+    internet_users_in_the_world_today: CounterValueType = field(init=False)
+    emails_sent_today: CounterValueType = field(init=False)
+    blog_posts_written_today: CounterValueType = field(init=False)
+    tweets_sent_today: CounterValueType = field(init=False)
+    google_searches_today: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.new_book_titles_published_this_year = _data.get('books_published')
@@ -165,6 +189,11 @@ class Environment:
     toxic_chemicals_released_in_the_environment_this_year : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    forest_loss_this_year: CounterValueType = field(init=False)
+    land_lost_to_soil_erosion_this_year: CounterValueType = field(init=False)
+    co2_emissions_this_year: CounterValueType = field(init=False)
+    desertification_this_year: CounterValueType = field(init=False)
+    toxic_chemicals_released_in_the_environment_this_year: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.forest_loss_this_year = _data.get('forest_loss')
@@ -188,6 +217,12 @@ class Food:
     money_spent_on_weight_loss_programs_in_the_usa_today : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    undernourished_people_in_the_world: CounterValueType = field(init=False)
+    overweight_people_in_the_world: CounterValueType = field(init=False)
+    obese_people_in_the_world: CounterValueType = field(init=False)
+    people_who_died_of_hunger_today: CounterValueType = field(init=False)
+    money_spent_for_obesity_related_diseases_in_the_usa_today: CounterValueType = field(init=False)
+    money_spent_on_weight_loss_programs_in_the_usa_today: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.undernourished_people_in_the_world = _data.get('undernourished')
@@ -209,6 +244,9 @@ class Water:
     people_with_no_access_to_a_safe_drinking_water_source : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    water_used_this_year: CounterValueType = field(init=False)
+    deaths_caused_by_water_related_diseases_this_year: CounterValueType = field(init=False)
+    people_with_no_access_to_a_safe_drinking_water_source: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.water_used_this_year = _data.get('water_consumed')
@@ -235,6 +273,17 @@ class Energy:
     days_to_the_end_of_coal : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    energy_used_today: CounterValueType = field(init=False)
+    non_renewable_sources: CounterValueType = field(init=False)
+    renewable_sources: CounterValueType = field(init=False)
+    solar_energy_striking_earth_today: CounterValueType = field(init=False)
+    oil_pumped_today: CounterValueType = field(init=False)
+    oil_left: CounterValueType = field(init=False)
+    days_to_the_end_of_oil: CounterValueType = field(init=False)
+    natural_gas_left: CounterValueType = field(init=False)
+    days_to_the_end_of_natural_gas: CounterValueType = field(init=False)
+    coal_left: CounterValueType = field(init=False)
+    days_to_the_end_of_coal: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.energy_used_today = _data.get('energy_used')
@@ -273,6 +322,21 @@ class Health:
     road_traffic_accident_fatalities_this_year : Union[int, float, None]
     """
     _data: InitVar[CounterValuesType]
+    communicable_disease_deaths_this_year: CounterValueType = field(init=False)
+    seasonal_flu_deaths_this_year: CounterValueType = field(init=False)
+    deaths_of_children_under_5_this_year: CounterValueType = field(init=False)
+    abortions_this_year: CounterValueType = field(init=False)
+    deaths_of_mothers_during_birth_this_year: CounterValueType = field(init=False)
+    hiv_aids_infected_people: CounterValueType = field(init=False)
+    deaths_caused_by_hiv_aids_this_year: CounterValueType = field(init=False)
+    deaths_caused_by_cancer_this_year: CounterValueType = field(init=False)
+    deaths_caused_by_malaria_this_year: CounterValueType = field(init=False)
+    cigarettes_smoked_today: CounterValueType = field(init=False)
+    deaths_caused_by_smoking_this_year: CounterValueType = field(init=False)
+    deaths_caused_by_alcohol_this_year: CounterValueType = field(init=False)
+    suicides_this_year: CounterValueType = field(init=False)
+    money_spent_on_illegal_drugs_this_year: CounterValueType = field(init=False)
+    road_traffic_accident_fatalities_this_year: CounterValueType = field(init=False)
 
     def __post_init__(self, _data: CounterValuesType) -> None:
         self.communicable_disease_deaths_this_year = _data.get('dth1s_communicable_disaxs')
