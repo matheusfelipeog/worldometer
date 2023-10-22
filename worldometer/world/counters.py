@@ -4,6 +4,9 @@ from typing import Dict, Union
 from worldometer.scraper import get_rts_counters_object
 
 
+CounterValuesType = Dict[str, Union[int, float, None]]
+
+
 class WorldCounters:
     """Contains a reference to each section of the home page counters.
 
@@ -47,7 +50,7 @@ class WorldCounters:
         self._data = self._load_data()
         self._init_counters()
 
-    def _load_data(self) -> Dict[str, Union[int, float, None]]:
+    def _load_data(self) -> CounterValuesType:
         rts_counters = get_rts_counters_object(path_url=self.source_path)
         return rts_counters
 
@@ -81,7 +84,7 @@ class WorldPopulation:
     net_population_growth_today : Union[int, float, None]
     net_population_growth_this_year : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.current_population = self._data.get('current_population')
@@ -106,7 +109,7 @@ class GovernmentAndEconomics:
     bicycles_produced_this_year : Union[int, float, None]
     computers_produced_this_year : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.public_healthcare_expenditure_today = self._data.get('gov_expenditures_health')
@@ -134,7 +137,7 @@ class SocietyAndMedia:
     tweets_sent_today : Union[int, float, None]
     google_searches_today : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.new_book_titles_published_this_year = self._data.get('books_published')
@@ -161,7 +164,7 @@ class Environment:
     desertification_this_year : Union[int, float, None]
     toxic_chemicals_released_in_the_environment_this_year : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.forest_loss_this_year = self._data.get('forest_loss')
@@ -184,7 +187,7 @@ class Food:
     money_spent_for_obesity_related_diseases_in_the_usa_today : Union[int, float, None]
     money_spent_on_weight_loss_programs_in_the_usa_today : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.undernourished_people_in_the_world = self._data.get('undernourished')
@@ -205,7 +208,7 @@ class Water:
     deaths_caused_by_water_related_diseases_this_year : Union[int, float, None]
     people_with_no_access_to_a_safe_drinking_water_source : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.water_used_this_year = self._data.get('water_consumed')
@@ -231,7 +234,7 @@ class Energy:
     coal_left : Union[int, float, None]
     days_to_the_end_of_coal : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.energy_used_today = self._data.get('energy_used')
@@ -269,7 +272,7 @@ class Health:
     money_spent_on_illegal_drugs_this_year : Union[int, float, None]
     road_traffic_accident_fatalities_this_year : Union[int, float, None]
     """
-    _data: Dict[str, Union[int, float, None]] = field(repr=False)
+    _data: CounterValuesType = field(repr=False)
 
     def __post_init__(self) -> None:
         self.communicable_disease_deaths_this_year = self._data.get('dth1s_communicable_disaxs')
