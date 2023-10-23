@@ -29,8 +29,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pipenv install --dev
+        python -m pipenv install --dev
 
     - name: Run unittests
       run: |
-        pipenv run python -m pytest --verbose
+        pipenv run pytest --verbose
