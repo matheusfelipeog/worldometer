@@ -33,4 +33,4 @@ jobs:
 
     - name: Run unittests
       run: |
-        pipenv run pytest --verbose
+        pipenv run python -m pytest --verbose
