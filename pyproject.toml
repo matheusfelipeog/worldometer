@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "worldometer"
+version = "2.0.0"
+description = "Get live, population, geography, projected, and historical data from around the world."
+authors = ["Matheus Felipe <matheusfelipeog@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <=3.11"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
