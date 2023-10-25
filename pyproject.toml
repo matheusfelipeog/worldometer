@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "worldometer"
+version = "2.0.0"
+description = "Get live, population, geography, projected, and historical data from around the world."
+authors = ["Matheus Felipe <matheusfelipeog@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/matheusfelipeog/worldometer"
+repository = "https://github.com/matheusfelipeog/worldometer"
+documentation = "https://worldometer.readthedocs.io"
+packages = [{include = "worldometer"}]
+keywords = [
+    "worldometer", "worldometers", "worldometer-api", "worldometer-scraping",
+    "world-data", "world-metrics", "metrics", "real-time-data", "real-time-metrics",
+    "api", "scraping", "requests-html", "livedata", "historical", "historical-data",
+    "live", "world", "data"
+]
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: Implementation',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules'
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/matheusfelipeog/worldometer/issues"
+"Pull Requests" = "https://github.com/matheusfelipeog/worldometer/pulls"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.12"
+requests-html = "^0.10.0"
+pandas = "^2.1.1"
+html5lib = "^1.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+sphinx = "^7.2.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
