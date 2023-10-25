@@ -36,7 +36,7 @@ classifiers = [
 "Pull Requests" = "https://github.com/matheusfelipeog/worldometer/pulls"
 
 [tool.poetry.dependencies]
-python = ">=3.9, <=3.11"
+python = ">=3.9, <3.12"
 requests-html = "^0.10.0"
 pandas = "^2.1.1"
 html5lib = "^1.1"
