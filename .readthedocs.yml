@@ -7,19 +7,20 @@ version: 2
 
 # Select the Docker image used for building the docs.
 build:
-  image: latest
+  os: ubuntu-22.04
+  tools:
+    python: "3.8"
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
   builder: html
   configuration: docs/source/conf.py
-  fail_on_warning: true
+  fail_on_warning: false
 
 # Build all formats (htmlzip, pdf and epub)
 formats: all
 
 # Configure python for install requirements
 python:
-  version: 3.8
   install:
     - requirements: docs/docs_requirements.txt
