@@ -33,7 +33,7 @@ classifiers = [
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/matheusfelipeog/worldometer/issues"
-"Pull Requets" = "https://github.com/matheusfelipeog/worldometer/pulls"
+"Pull Requests" = "https://github.com/matheusfelipeog/worldometer/pulls"
 
 [tool.poetry.dependencies]
 python = ">=3.9, <=3.11"
