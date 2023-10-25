@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests-html = "0.10.0"
+requests-html = "*"
 pandas = "*"
 html5lib = "*"
 
